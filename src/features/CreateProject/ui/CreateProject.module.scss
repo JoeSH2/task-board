@@ -1,0 +1,35 @@
+.CreateProject {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+  width: 100%;
+  margin: 0 0 60px 0;
+
+  &::before {
+    position: absolute;
+    content: '';
+    height: 1px;
+    width: 50%;
+    background-color: var(--active-color);
+    bottom: -30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.createBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--special-hover-color);
+
+  &:hover {
+    background-color: var(--special-color);
+  }
+
+  .icon {
+    width: 25px;
+    height: 25px;
+    fill: var(--text-inv-color);
+  }
+}

@@ -1,0 +1,26 @@
+.ProjectList {
+  display: grid;
+  gap: 20px;
+}
+.preLoad {
+  height: 100%;
+  text-align: center;
+  font-family: var(--font-main);
+  text-transform: uppercase;
+  border-radius: 10px;
+  padding: 20px;
+  h2 {
+    font-size: var(--font-L);
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  p {
+    background-color: var(--special-hover-color);
+    padding: 10px;
+    border-radius: 10px;
+
+    color: var(--text-inv-color);
+    font-family: var(--font-secondary);
+    font-size: var(--font-M);
+  }
+}

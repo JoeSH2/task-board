@@ -1,0 +1,11 @@
+.Webrapper {
+  width: 100%;
+  display: flex;
+  margin: 0 auto;
+  padding: 60px 15px;
+
+  @media screen and (max-width: 430px) {
+    display: block;
+    padding: 30px 8px;
+  }
+}

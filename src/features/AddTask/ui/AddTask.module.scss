@@ -1,0 +1,14 @@
+.AddTask {
+  gap: 20px;
+}
+.createBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .icon {
+    width: 25px;
+    height: 25px;
+    fill: var(--text-inv-color);
+  }
+}

@@ -1,0 +1,14 @@
+.ProfileCard {
+  gap: 20px;
+}
+.icon {
+  cursor: pointer;
+  display: block;
+  object-fit: contain;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+.name {
+  font-size: var(--font-M);
+}

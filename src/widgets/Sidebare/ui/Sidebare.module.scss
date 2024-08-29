@@ -1,0 +1,44 @@
+.Sidebare {
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-secondary);
+  top: 140px;
+
+  width: 360px;
+  height: calc(100vh - 200px);
+
+  box-shadow: var(--box-shadow);
+
+  padding: 30px 20px;
+  border-radius: 20px;
+  margin-right: 100px;
+
+  font-family: var(--font-main);
+  background-color: var(--secondary-color);
+  z-index: var(--z-level-1);
+}
+.title {
+  text-align: center;
+  font-weight: 600;
+  font-size: var(--font-XL);
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+.toggleTheme {
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 430px) {
+  .Sidebare {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    margin: 0;
+    z-index: var(--z-level-3);
+  }
+}

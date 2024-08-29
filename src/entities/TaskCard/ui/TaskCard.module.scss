@@ -1,0 +1,56 @@
+.TaskCard {
+  position: relative;
+  font-family: var(--font-secondary);
+  padding: 20px;
+  gap: 10px;
+  width: 100%;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  transition: box-shadow 0.2s ease-out;
+
+  &:hover {
+    box-shadow: var(--box-shadow-inv);
+  }
+
+  .active {
+    background-color: var(--secondary-color);
+  }
+  .inactive {
+    background-color: var(--special-color);
+  }
+}
+.removeBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.icon {
+  width: 22px;
+  height: 22px;
+  stroke: (var(--error-color));
+  transition: stroke 0.2s ease;
+
+  &:hover {
+    stroke: var(--error-hover-color);
+  }
+}
+.title {
+  font-size: var(--font-M);
+  font-weight: 600;
+  padding-right: 15px;
+}
+.date {
+  font-size: var(--font-S);
+}
+.status {
+  font-size: var(--font-S);
+  font-weight: bold;
+  color: var(--special-color);
+  padding: 6px 8px;
+  border-radius: 4px;
+  background-color: var(--main-color);
+}

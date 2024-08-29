@@ -1,0 +1,42 @@
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation: opacityAni 0.2s forwards;
+  background-color: var(--modal-back-color);
+  z-index: var(--z-level-4);
+}
+.wrapper {
+  font-family: var(--font-secondary);
+  box-shadow: var(--box-shadow);
+  padding: 40px;
+  background-color: var(--main-color);
+  border-radius: 20px;
+  animation: scaleAni 0.2s forwards;
+}
+
+@keyframes opacityAni {
+  0% {
+    background-color: var(--modal-back-hover-color);
+  }
+  100% {
+    background-color: var(--modal-back-color);
+  }
+}
+
+@keyframes scaleAni {
+  0% {
+    transform: scale(95%);
+  }
+  100% {
+    transform: scale(100%);
+  }
+}

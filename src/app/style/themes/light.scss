@@ -1,0 +1,29 @@
+.appLight {
+  --main-color: #ffffff;
+  --secondary-color: #e2f1f2;
+
+  --special-color: #00ac9f;
+  --special-hover-color: #00cac2;
+  --special-border-color: rgba(0, 172, 159, 0.5);
+
+  --active-color: #16f3cb;
+  --error-color: #c52764;
+  --error-hover-color: #8d1143;
+
+  --disabled-color: rgba(0, 0, 0, 0.15);
+  --box-shadow: 0px 0px 10px 2px #c8ccd2;
+  --box-shadow-inv: inset 11px -11px 16px 3px #21b78e1f;
+  --box-shadow-hold: 0px 0px 15px 3px rgba(58, 116, 154, 0.7);
+  --box-shadow-risk: 0px 0px 15px 3px rgba(126, 33, 69, 0.7);
+
+  --modal-back-color: rgba(0, 0, 0, 0.3);
+  --modal-back-hover-color: rgba(0, 0, 0, 0.1);
+
+  --switcher-color: #1cabc2;
+  --back-switcher-icon: #aaded0;
+
+  --text-color: #000000;
+  --text-secondary-color: #043443;
+  --text-inv-color: #fafafa;
+  --text-inv-secondary-color: #dbe9f2;
+}

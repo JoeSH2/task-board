@@ -1,0 +1,9 @@
+.TaskList {
+  position: relative;
+  border-radius: 10px;
+  flex: 0 1 30%;
+  gap: 10px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary-color) var(--text-inv-color);
+}

@@ -1,0 +1,56 @@
+.ModalCreateForm {
+  min-width: 550px;
+}
+.title {
+  position: relative;
+  text-align: center;
+  font-size: var(--font-XL);
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-bottom: 60px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    height: 1px;
+    width: 70%;
+    background: var(--active-color);
+    transform: translate(-50%, 50%);
+  }
+}
+.form {
+  display: grid;
+  gap: 20px;
+}
+.blockForm {
+  gap: 20px;
+}
+.text {
+  flex: 0 0 25%;
+}
+.input {
+  flex: 1 0 auto;
+  border-bottom: 1px solid var(--special-color);
+  padding: 4px 12px;
+}
+.textarea {
+  width: 100%;
+  min-height: 150px;
+  max-height: 400px;
+}
+.btnWrapper {
+  gap: 20px;
+}
+.btn,
+.btnCancel {
+  flex: 1 1 auto;
+  margin-top: 20px;
+}
+.btnCancel {
+  background-color: var(--error-color);
+  &:hover {
+    background-color: var(--error-hover-color);
+  }
+}

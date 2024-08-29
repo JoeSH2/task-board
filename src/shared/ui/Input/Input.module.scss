@@ -1,0 +1,12 @@
+.Input {
+  border: 1px solid var(--special-color);
+  border-radius: 4px;
+  padding: 6px 18px;
+  transition: background-color 0.2s ease;
+  &:focus {
+    background-color: var(--secondary-color);
+  }
+}
+.disabled {
+  background-color: var(--disabled-color);
+}

@@ -1,0 +1,54 @@
+.Header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: var(--z-level-2);
+  width: 100%;
+  background-color: var(--main-color);
+}
+.wrapper {
+  height: 80px;
+  padding: 0 15px;
+  border-bottom: 2px solid var(--secondary-color);
+}
+.title {
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-size: var(--font-LOGO);
+  letter-spacing: 4px;
+  color: var(--special-color);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.userArt {
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 430px) {
+  .wrapper {
+    height: 60px;
+    padding: 0 8px;
+  }
+  .title {
+    font-size: var(--font-LOGO-mobile);
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .userArt {
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+}

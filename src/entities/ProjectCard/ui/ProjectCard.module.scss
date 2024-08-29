@@ -1,0 +1,19 @@
+.ProjectCard {
+  color: var(--text-inv-color);
+  background-color: var(--special-hover-color);
+  padding: 10px;
+  gap: 20px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--special-color);
+  }
+}
+.img {
+  object-fit: contain;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}

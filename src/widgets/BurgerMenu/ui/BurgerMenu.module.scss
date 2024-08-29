@@ -1,0 +1,23 @@
+.BurgerMenu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  border-radius: 6px;
+
+  z-index: var(--z-level-2);
+}
+.icon {
+}
+.line {
+  height: 2px;
+  width: 36px;
+  background-color: var(--special-color);
+}
+.line1 {
+}
+.line2 {
+}
+.line3 {
+}

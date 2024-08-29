@@ -1,0 +1,45 @@
+.StatusProject {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 10px 0 20px 0;
+  font-family: var(--font-main);
+
+  @media screen and (max-width: 430px) {
+    grid-template-columns: 50% 50%;
+    place-content: space-between;
+    row-gap: 50px;
+  }
+}
+.item {
+  position: relative;
+  text-transform: uppercase;
+  gap: 10px;
+  font-size: var(--font-M);
+
+  @media screen and (max-width: 430px) {
+    font-size: var(--font-M-mobile);
+  }
+}
+.active {
+  &::before {
+    animation: anim 0.4s forwards;
+    position: absolute;
+    content: '';
+    background-color: var(--active-color);
+    bottom: -20px;
+    left: 50%;
+    height: 2px;
+    width: 50%;
+  }
+}
+
+@keyframes anim {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scaleX(1);
+  }
+}
