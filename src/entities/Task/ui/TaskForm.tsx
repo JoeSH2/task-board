@@ -1,11 +1,12 @@
 import { FC, useCallback, useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import { taskAction } from 'src/entities/Task';
-import { TaskStatus } from 'src/entities/Task/types/TaskType.ts';
-import { useAppDispatch } from 'src/shared/hooks/hookRedux.tsx';
-import { Button } from 'src/shared/ui/Button/Button.tsx';
-import { FlexRow } from 'src/shared/ui/Flex/FlexRow.tsx';
-import { Textarea } from 'src/shared/ui/Textarea/Textarea.tsx';
+
+import { taskAction } from '@/entities/Task';
+import { TaskStatus } from '@/entities/Task/types/TaskType.ts';
+import { useAppDispatch } from '@/shared/hooks/hookRedux.tsx';
+import { Button } from '@/shared/ui/Button/Button.tsx';
+import { FlexRow } from '@/shared/ui/Flex/FlexRow.tsx';
+import { Textarea } from '@/shared/ui/Textarea/Textarea.tsx';
 
 import style from './Task.module.scss';
 

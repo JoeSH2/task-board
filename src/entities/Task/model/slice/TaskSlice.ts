@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TaskStatus, TaskType } from 'src/entities/Task/types/TaskType.ts';
+
+import { TaskStatus, TaskType } from '@/entities/Task/types/TaskType.ts';
 
 type TaskStatusState = Partial<TaskType>;
 

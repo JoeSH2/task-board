@@ -1,13 +1,14 @@
 import { FC } from 'react';
-import { Task } from 'src/entities/Task';
-import { TaskStatus, TaskType } from 'src/entities/Task/types/TaskType.ts';
-import { getUserIsAuth } from 'src/entities/User';
-import { AddTask } from 'src/features/AddTask';
-import { getStatusProject, StatusProject } from 'src/features/StatusProject';
-import { StatusProjectType } from 'src/features/StatusProject';
-import { TaskList } from 'src/features/TaskList';
-import { useAppSelector } from 'src/shared/hooks/hookRedux.tsx';
-import { cls } from 'src/shared/lib/cls.ts';
+
+import { Task } from '@/entities/Task';
+import { TaskStatus, TaskType } from '@/entities/Task/types/TaskType.ts';
+import { getUserIsAuth } from '@/entities/User';
+import { AddTask } from '@/features/AddTask';
+import { getStatusProject, StatusProject } from '@/features/StatusProject';
+import { StatusProjectType } from '@/features/StatusProject';
+import { TaskList } from '@/features/TaskList';
+import { useAppSelector } from '@/shared/hooks/hookRedux.tsx';
+import { cls } from '@/shared/lib/cls.ts';
 
 import style from './ProjectPage.module.scss';
 

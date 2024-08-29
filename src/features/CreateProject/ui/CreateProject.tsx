@@ -1,10 +1,11 @@
 import { FC, MouseEvent, useState } from 'react';
-import { getUserIsAuth } from 'src/entities/User';
-import PlusSVG from 'src/shared/assets/img/plus.svg';
-import { useAppSelector } from 'src/shared/hooks/hookRedux.tsx';
-import { Button } from 'src/shared/ui/Button/Button.tsx';
-import { ModalCreateForm } from 'src/shared/ui/ModalCreateForm/ModalCreateForm.tsx';
-import { Svg } from 'src/shared/ui/Svg/Svg.tsx';
+
+import { getUserIsAuth } from '@/entities/User';
+import PlusSVG from '@/shared/assets/img/plus.svg';
+import { useAppSelector } from '@/shared/hooks/hookRedux.tsx';
+import { Button } from '@/shared/ui/Button/Button.tsx';
+import { ModalCreateForm } from '@/shared/ui/ModalCreateForm/ModalCreateForm.tsx';
+import { Svg } from '@/shared/ui/Svg/Svg.tsx';
 
 import style from './CreateProject.module.scss';
 

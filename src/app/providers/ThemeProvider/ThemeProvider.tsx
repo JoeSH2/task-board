@@ -1,6 +1,7 @@
 import { FC, ReactNode, useEffect, useState } from 'react';
-import { Theme } from 'src/shared/consts/theme.ts';
-import { ThemeContext } from 'src/shared/lib/ThemeContext.tsx';
+
+import { Theme } from '@/shared/consts/theme.ts';
+import { ThemeContext } from '@/shared/lib/ThemeContext.tsx';
 
 interface ThemeProviderProps {
   children?: ReactNode;

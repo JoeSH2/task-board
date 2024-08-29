@@ -1,9 +1,10 @@
 import { FC, useState } from 'react';
-import { Theme } from 'src/shared/consts/theme.ts';
-import { useTheme } from 'src/shared/hooks/useTheme.tsx';
-import { cls } from 'src/shared/lib/cls.ts';
-import { FlexRow } from 'src/shared/ui/Flex/FlexRow.tsx';
-import { Toggle } from 'src/shared/ui/Toggle';
+
+import { Theme } from '@/shared/consts/theme.ts';
+import { useTheme } from '@/shared/hooks/useTheme.tsx';
+import { cls } from '@/shared/lib/cls.ts';
+import { FlexRow } from '@/shared/ui/Flex/FlexRow.tsx';
+import { Toggle } from '@/shared/ui/Toggle';
 
 import style from './ThemeSwitcher.module.scss';
 

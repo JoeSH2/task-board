@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import { cls } from 'src/shared/lib/cls.ts';
+
+import { cls } from '@/shared/lib/cls.ts';
 
 import style from './Toggle.module.scss';
 

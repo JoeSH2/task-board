@@ -1,7 +1,8 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { taskReducer } from 'src/entities/Task';
-import { userReducer } from 'src/entities/User';
-import { statusProjectReducer } from 'src/features/StatusProject';
+
+import { taskReducer } from '@/entities/Task';
+import { userReducer } from '@/entities/User';
+import { statusProjectReducer } from '@/features/StatusProject';
 
 const rootReducer = combineReducers({
   task: taskReducer,

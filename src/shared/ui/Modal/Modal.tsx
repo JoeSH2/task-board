@@ -1,6 +1,7 @@
 import { FC, ReactNode, useEffect, useRef } from 'react';
-import { cls } from 'src/shared/lib/cls.ts';
-import { Portal } from 'src/shared/ui/Portal/Portal.tsx';
+
+import { cls } from '@/shared/lib/cls.ts';
+import { Portal } from '@/shared/ui/Portal/Portal.tsx';
 
 import style from './Modal.module.scss';
 

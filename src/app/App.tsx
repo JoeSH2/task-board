@@ -1,10 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
-import { ProjectPage } from 'src/pages/ProjectPage';
-import { Container } from 'src/shared/ui/Container/Container.tsx';
-import { Webrapper } from 'src/shared/ui/Webrapper/Webrapper.tsx';
-import { Footer } from 'src/widgets/Footer';
-import { Header } from 'src/widgets/Header';
-import { Sidebare } from 'src/widgets/Sidebare';
+
+import { ProjectPage } from '@/pages/ProjectPage';
+import { Container } from '@/shared/ui/Container/Container.tsx';
+import { Webrapper } from '@/shared/ui/Webrapper/Webrapper.tsx';
+import { Footer } from '@/widgets/Footer';
+import { Header } from '@/widgets/Header';
+import { Sidebare } from '@/widgets/Sidebare';
 
 function App() {
   return (

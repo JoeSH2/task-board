@@ -1,5 +1,5 @@
-import { RootState } from 'src/app/store/store.ts';
-import { TaskStatus } from 'src/entities/Task/types/TaskType.ts';
+import { RootState } from '@/app/store/store.ts';
+import { TaskStatus } from '@/entities/Task/types/TaskType.ts';
 
 export const getTaskStatus = (state: RootState) =>
   state.task.status ?? TaskStatus.EXECUTED;

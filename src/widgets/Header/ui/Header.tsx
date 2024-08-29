@@ -1,9 +1,10 @@
 import { FC } from 'react';
-import { ProfileCard } from 'src/entities/ProfileCard';
-import { getUserIsAuth } from 'src/entities/User';
-import { Login } from 'src/features/Login';
-import { useAppSelector } from 'src/shared/hooks/hookRedux.tsx';
-import { FlexRow } from 'src/shared/ui/Flex/FlexRow.tsx';
+
+import { ProfileCard } from '@/entities/ProfileCard';
+import { getUserIsAuth } from '@/entities/User';
+import { Login } from '@/features/Login';
+import { useAppSelector } from '@/shared/hooks/hookRedux.tsx';
+import { FlexRow } from '@/shared/ui/Flex/FlexRow.tsx';
 
 import { Button } from '../../../shared/ui/Button/Button.tsx';
 import style from './Header.module.scss';

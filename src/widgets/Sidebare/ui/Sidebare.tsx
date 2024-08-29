@@ -1,8 +1,9 @@
 import { FC } from 'react';
-import { ProjectList } from 'src/entities/ProjectList';
-import { CreateProject } from 'src/features/CreateProject';
-import { ThemeSwitcher } from 'src/features/ThemeSwitcher';
-import { cls } from 'src/shared/lib/cls.ts';
+
+import { ProjectList } from '@/entities/ProjectList';
+import { CreateProject } from '@/features/CreateProject';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
+import { cls } from '@/shared/lib/cls.ts';
 
 import style from './Sidebare.module.scss';
 

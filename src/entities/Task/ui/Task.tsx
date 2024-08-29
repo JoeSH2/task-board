@@ -1,9 +1,10 @@
 import { FC, memo } from 'react';
-import { TaskForm } from 'src/entities/Task/ui/TaskForm.tsx';
-import ClickSvg from 'src/shared/assets/img/click.svg';
-import { useAppSelector } from 'src/shared/hooks/hookRedux.tsx';
-import { FlexColumn } from 'src/shared/ui/Flex/FlexColumn.tsx';
-import { Svg } from 'src/shared/ui/Svg/Svg.tsx';
+
+import { TaskForm } from '@/entities/Task/ui/TaskForm.tsx';
+import ClickSvg from '@/shared/assets/img/click.svg';
+import { useAppSelector } from '@/shared/hooks/hookRedux.tsx';
+import { FlexColumn } from '@/shared/ui/Flex/FlexColumn.tsx';
+import { Svg } from '@/shared/ui/Svg/Svg.tsx';
 
 import style from './Task.module.scss';
 

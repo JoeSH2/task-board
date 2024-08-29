@@ -1,6 +1,7 @@
 import { FC, memo, ReactElement } from 'react';
 import { ReactSVG } from 'react-svg';
-import { cls } from 'src/shared/lib/cls.ts';
+
+import { cls } from '@/shared/lib/cls.ts';
 
 import style from './Svg.module.scss';
 

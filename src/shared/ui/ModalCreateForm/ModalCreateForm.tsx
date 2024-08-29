@@ -1,9 +1,10 @@
 import { FC } from 'react';
-import { Button } from 'src/shared/ui/Button/Button.tsx';
-import { FlexRow } from 'src/shared/ui/Flex/FlexRow.tsx';
-import { Input } from 'src/shared/ui/Input/Input.tsx';
-import { Modal } from 'src/shared/ui/Modal/Modal.tsx';
-import { Textarea } from 'src/shared/ui/Textarea/Textarea.tsx';
+
+import { Button } from '@/shared/ui/Button/Button.tsx';
+import { FlexRow } from '@/shared/ui/Flex/FlexRow.tsx';
+import { Input } from '@/shared/ui/Input/Input.tsx';
+import { Modal } from '@/shared/ui/Modal/Modal.tsx';
+import { Textarea } from '@/shared/ui/Textarea/Textarea.tsx';
 
 import style from './ModalCreateForm.module.scss';
 

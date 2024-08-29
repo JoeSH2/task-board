@@ -1,9 +1,10 @@
 import { FC, MouseEvent, useState } from 'react';
-import PlusSVG from 'src/shared/assets/img/plus.svg';
-import { Button } from 'src/shared/ui/Button/Button.tsx';
-import { FlexRow } from 'src/shared/ui/Flex/FlexRow.tsx';
-import { ModalCreateForm } from 'src/shared/ui/ModalCreateForm/ModalCreateForm.tsx';
-import { Svg } from 'src/shared/ui/Svg/Svg.tsx';
+
+import PlusSVG from '@/shared/assets/img/plus.svg';
+import { Button } from '@/shared/ui/Button/Button.tsx';
+import { FlexRow } from '@/shared/ui/Flex/FlexRow.tsx';
+import { ModalCreateForm } from '@/shared/ui/ModalCreateForm/ModalCreateForm.tsx';
+import { Svg } from '@/shared/ui/Svg/Svg.tsx';
 
 import style from './AddTask.module.scss';
 

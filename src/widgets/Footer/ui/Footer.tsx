@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import { Container } from 'src/shared/ui/Container/Container.tsx';
+
+import { Container } from '@/shared/ui/Container/Container.tsx';
 
 import style from './Footer.module.scss';
 

@@ -1,7 +1,8 @@
 import { FC } from 'react';
-import { TaskType } from 'src/entities/Task/types/TaskType.ts';
-import { TaskCard } from 'src/entities/TaskCard';
-import { FlexColumn } from 'src/shared/ui/Flex/FlexColumn.tsx';
+
+import { TaskType } from '@/entities/Task/types/TaskType.ts';
+import { TaskCard } from '@/entities/TaskCard';
+import { FlexColumn } from '@/shared/ui/Flex/FlexColumn.tsx';
 
 import style from './TaskList.module.scss';
 

@@ -7,16 +7,16 @@ export default defineConfig({
   esbuild: {
     jsxInject: `import React from 'react'`,
   },
-  resolve: {
-    alias: {
-      src: '/src',
-    },
-  },
   // resolve: {
   //   alias: {
-  //     '@': '/src',
+  //     src: '/src',
   //   },
   // },
+  resolve: {
+    alias: {
+      '@': '/src',
+    },
+  },
   server: {
     port: 3000,
     open: true,

@@ -1,7 +1,8 @@
 import { FC } from 'react';
-import { getUserIsAuth } from 'src/entities/User';
-import { useAppSelector } from 'src/shared/hooks/hookRedux.tsx';
-import { FlexColumn } from 'src/shared/ui/Flex/FlexColumn.tsx';
+
+import { getUserIsAuth } from '@/entities/User';
+import { useAppSelector } from '@/shared/hooks/hookRedux.tsx';
+import { FlexColumn } from '@/shared/ui/Flex/FlexColumn.tsx';
 
 import { ProjectCard } from '../../ProjectCard';
 import style from './ProjectList.module.scss';

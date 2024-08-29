@@ -1,6 +1,7 @@
 import { FC } from 'react';
-import { FlexColumn } from 'src/shared/ui/Flex/FlexColumn.tsx';
-import { FlexRow } from 'src/shared/ui/Flex/FlexRow.tsx';
+
+import { FlexColumn } from '@/shared/ui/Flex/FlexColumn.tsx';
+import { FlexRow } from '@/shared/ui/Flex/FlexRow.tsx';
 
 import style from './ProjectCard.module.scss';
 

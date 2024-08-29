@@ -1,11 +1,12 @@
 import { FC, MouseEvent, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { User, userAction } from 'src/entities/User';
-import { useAppDispatch } from 'src/shared/hooks/hookRedux.tsx';
-import { Button } from 'src/shared/ui/Button/Button.tsx';
-import { FlexRow } from 'src/shared/ui/Flex/FlexRow.tsx';
-import { Input } from 'src/shared/ui/Input/Input.tsx';
-import { Modal } from 'src/shared/ui/Modal/Modal.tsx';
+
+import { User, userAction } from '@/entities/User';
+import { useAppDispatch } from '@/shared/hooks/hookRedux.tsx';
+import { Button } from '@/shared/ui/Button/Button.tsx';
+import { FlexRow } from '@/shared/ui/Flex/FlexRow.tsx';
+import { Input } from '@/shared/ui/Input/Input.tsx';
+import { Modal } from '@/shared/ui/Modal/Modal.tsx';
 
 import style from './Login.module.scss';
 

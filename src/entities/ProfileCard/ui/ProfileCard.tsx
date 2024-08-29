@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import { FlexRow } from 'src/shared/ui/Flex/FlexRow.tsx';
+
+import { FlexRow } from '@/shared/ui/Flex/FlexRow.tsx';
 
 import style from './ProfileCard.module.scss';
 
