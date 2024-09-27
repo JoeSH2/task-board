@@ -1,0 +1,329 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "login": "admin",
+      "password": "admin"
+    }
+  ],
+  "projects": [
+    {
+      "status": "In Progress",
+      "id": "1",
+      "title": "TaskMaster",
+      "info": "TaskMaster is a web application designed for managing projects and tasks within small teams and startups. It helps users effectively plan, track progress, and collaborate within their teams. The platform includes features for task management, time tracking, messaging, and integration with other productivity tools.",
+      "img": "https://mir-s3-cdn-cf.behance.net/project_modules/disp/22a3ab16269821.562a8602153f7.png",
+      "tasks": 7
+    },
+    {
+      "img": "https://static.vecteezy.com/system/resources/previews/007/161/172/non_2x/hand-logo-template-free-vector.jpg",
+      "title": "Tasks-form",
+      "info": "Tasks-form is a web application designed for task management, allowing users to create, edit, and track tasks through a user-friendly interface. Users can add tasks with detailed descriptions, set deadlines, prioritize them, and assign responsibilities. The application supports integration with calendars and reminders, helping users effectively plan and monitor their workflows.",
+      "status": "At risk",
+      "tasks": 6,
+      "id": "2"
+    },
+    {
+      "img": "https://static.vecteezy.com/system/resources/previews/008/991/240/non_2x/v-brush-stroke-artistic-letter-logo-design-with-creative-modern-look-and-vibrant-colors-vector.jpg",
+      "title": "Fabric",
+      "info": "Fabric is a powerful platform for creating and managing templates and components for web development. It aims to simplify the design and development process by providing users with a library of pre-built templates and modular components that can be easily customized. Fabric will include a visual editing tool, support for various frameworks, and integration with popular content management systems.",
+      "status": "Inactive",
+      "tasks": 6,
+      "id": "3"
+    },
+    {
+      "img": "https://www.cryptopolitan.com/wp-content/uploads/2023/12/DALL%C2%B7E-2023-12-17-23.22.10-A-digital-art-representation-of-Ripple-cryptocurrency.-The-image-features-a-large-shimmering-blue-and-silver-coin-with-the-Ripple-logo-prominently-di.jpg",
+      "title": "Clone Rutube",
+      "info": "Clone Rutube is a project to create a video hosting platform similar to Rutube, with a focus on user-generated content and interaction. The platform will support video uploading, viewing, and commenting, as well as features for subscribing to channels, creating playlists, and recommending content. The project will include mechanisms for content and user data security, as well as a scalable architecture to handle large volumes of videos and users.",
+      "status": "On hold",
+      "tasks": 6,
+      "id": "4"
+    },
+    {
+      "id": "d6bc",
+      "title": "Canvas",
+      "info": "Canvas is an intuitive platform designed for collaborative web design and development. It allows teams to build responsive layouts with ease, leveraging a rich set of customizable UI components. The platform features real-time collaboration, version control, and seamless integration with front-end frameworks like React and Vue.",
+      "img": "https://blog.logrocket.com/wp-content/uploads/2022/07/understanding-watchers-vue.png",
+      "tasks": 2,
+      "status": "Inactive"
+    },
+    {
+      "id": "6451",
+      "title": "Разработка этого проекта",
+      "info": "Приложение для отслеживания хода выполнения проектов и задач внутри них.\nС отзывчивым интерфейсом и возможностью смены цветовой темы.\nСоздание проекта подразумевает одну большую задачу, которая делится на блоки, состоящие из заданий, которые можно выполнять и отчитываться по ним. А при завершении проекта, можно придать ему соответствующий статус!",
+      "img": "https://res.cloudinary.com/practicaldev/image/fetch/s--G5AWXQ2H--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/i/v4y43jjfj7u5r8to8qdu.png",
+      "tasks": 3,
+      "status": "In Progress"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "1",
+      "projectId": "1",
+      "title": "Search",
+      "description": "Implement a search functionality for the database, including filtering by key fields and displaying results in a list format.",
+      "report": "Search: Implement a search functionality for the database, including filtering by key fields and displaying results in a list format. - Причина невыполнения",
+      "status": "UNFULFILLED",
+      "date": "15.01.2024"
+    },
+    {
+      "id": "2",
+      "projectId": "1",
+      "title": "Create Profile Page",
+      "description": "Develop a user profile page showing personal information, images, and providing the ability to edit data.",
+      "report": "",
+      "status": "EXECUTED",
+      "date": ""
+    },
+    {
+      "id": "3",
+      "projectId": "2",
+      "title": "Develop a System for Editing Tasks",
+      "description": "Create an interface for editing tasks, including the ability to change status, description, and deadlines.",
+      "report": "Develop a System for Editing Tasks: Create an interface for editing tasks, including the ability to change status, description, and deadlines. - Причина невыполнения",
+      "status": "UNFULFILLED",
+      "date": "05.02.2024"
+    },
+    {
+      "id": "4",
+      "projectId": "2",
+      "title": "Implement User Authentication",
+      "description": "Add a user authentication system using login and password, as well as password recovery and email verification.",
+      "report": "Implement User Authentication: Add a user authentication system using login and password, as well as password recovery and email verification. - Выполнено",
+      "status": "FULFILLED",
+      "date": "10.02.2024"
+    },
+    {
+      "id": "5",
+      "projectId": "3",
+      "title": "Design a Dashboard",
+      "description": "Create a user dashboard displaying important information, statistics, and quick access to main functions.",
+      "report": "",
+      "status": "EXECUTED",
+      "date": ""
+    },
+    {
+      "id": "6",
+      "projectId": "3",
+      "title": "Integrate Payment Gateway",
+      "description": "Integrate a payment gateway to handle transactions, ensuring security and support for various payment methods.",
+      "report": "Integrate Payment Gateway: Integrate a payment gateway to handle transactions, ensuring security and support for various payment methods. - Причина невыполнения",
+      "status": "UNFULFILLED",
+      "date": "01.03.2024"
+    },
+    {
+      "id": "7",
+      "projectId": "4",
+      "title": "Build a Notification System",
+      "description": "Develop a notification system that informs users of important events through email, SMS, or in-app notifications.",
+      "report": "Build a Notification System: Develop a notification system that informs users of important events through email, SMS, or in-app notifications. - Выполнено",
+      "status": "FULFILLED",
+      "date": "10.03.2024"
+    },
+    {
+      "id": "8",
+      "projectId": "4",
+      "title": "Optimize Database Performance",
+      "description": "Optimize the database to improve query speed and reduce system response time.",
+      "report": "Optimize Database Performance: Optimize the database to improve query speed and reduce system response time. - Причина невыполнения",
+      "status": "UNFULFILLED",
+      "date": "20.03.2024"
+    },
+    {
+      "id": "9",
+      "projectId": "1",
+      "title": "Create Responsive Design",
+      "description": "Ensure responsive design for the web application so it displays correctly on various devices and screen sizes.",
+      "report": "",
+      "status": "EXECUTED",
+      "date": ""
+    },
+    {
+      "id": "10",
+      "projectId": "2",
+      "title": "Develop a Chat System",
+      "description": "Implement a system for instant messaging between users, supporting both personal and group chats.",
+      "report": "Develop a Chat System: Implement a system for instant messaging between users, supporting both personal and group chats. - Выполнено",
+      "status": "FULFILLED",
+      "date": "10.04.2024"
+    },
+    {
+      "id": "11",
+      "projectId": "3",
+      "title": "Build API Endpoints",
+      "description": "Create a set of API endpoints for frontend interaction, providing access to data and system functionality.",
+      "report": "Build API Endpoints: Create a set of API endpoints for frontend interaction, providing access to data and system functionality. - Причина невыполнения",
+      "status": "UNFULFILLED",
+      "date": "15.04.2024"
+    },
+    {
+      "id": "12",
+      "projectId": "4",
+      "title": "Implement User Roles and Permissions",
+      "description": "Implement a role and permissions system to manage user access to different parts of the system and functionalities.",
+      "report": "",
+      "status": "EXECUTED",
+      "date": ""
+    },
+    {
+      "id": "13",
+      "projectId": "1",
+      "title": "Design a Reporting Module",
+      "description": "Develop a reporting module to generate various types of reports and analyze data.",
+      "report": "Design a Reporting Module: Develop a reporting module to generate various types of reports and analyze data. - Причина невыполнения",
+      "status": "UNFULFILLED",
+      "date": "01.05.2024"
+    },
+    {
+      "id": "14",
+      "projectId": "2",
+      "title": "Develop a Task Assignment Feature",
+      "description": "Add a feature for assigning tasks to users with the ability to track status and completion.",
+      "report": "Develop a Task Assignment Feature: Add a feature for assigning tasks to users with the ability to track status and completion. - Выполнено",
+      "status": "FULFILLED",
+      "date": "10.05.2024"
+    },
+    {
+      "id": "15",
+      "projectId": "3",
+      "title": "Create an Activity Log",
+      "description": "Implement an activity logging system to monitor and analyze user actions within the application.",
+      "report": "Create an Activity Log: Implement an activity logging system to monitor and analyze user actions within the application. - Причина невыполнения",
+      "status": "UNFULFILLED",
+      "date": "20.05.2024"
+    },
+    {
+      "id": "16",
+      "projectId": "4",
+      "title": "Implement Search Filters",
+      "description": "Create filters to improve search functionality by various criteria such as date, category, and status.",
+      "report": "",
+      "status": "EXECUTED",
+      "date": ""
+    },
+    {
+      "id": "17",
+      "projectId": "1",
+      "title": "Build an Event Calendar",
+      "description": "Develop a calendar to display events, tasks, and important dates with the ability to add and edit events.",
+      "report": "Build an Event Calendar: Develop a calendar to display events, tasks, and important dates with the ability to add and edit events. - Выполнено",
+      "status": "FULFILLED",
+      "date": "10.06.2024"
+    },
+    {
+      "id": "18",
+      "projectId": "2",
+      "title": "Create User Feedback Mechanism",
+      "description": "Implement a system for collecting and processing user feedback to improve product quality and service.",
+      "report": "Create User Feedback Mechanism: Implement a system for collecting and processing user feedback to improve product quality and service. - Причина невыполнения",
+      "status": "UNFULFILLED",
+      "date": "20.06.2024"
+    },
+    {
+      "id": "19",
+      "projectId": "3",
+      "title": "Implement Data Encryption",
+      "description": "Ensure data encryption to enhance information security and protect data in storage and transmission.",
+      "report": "",
+      "status": "EXECUTED",
+      "date": ""
+    },
+    {
+      "id": "20",
+      "projectId": "4",
+      "title": "Develop a Customizable Dashboard",
+      "description": "Create a customizable dashboard that users can tailor to their needs and preferences.",
+      "report": "Develop a Customizable Dashboard: Create a customizable dashboard that users can tailor to their needs and preferences. - Выполнено",
+      "status": "FULFILLED",
+      "date": "20.07.2024"
+    },
+    {
+      "id": "21",
+      "projectId": "1",
+      "title": "Create a Mobile App Version",
+      "description": "Develop a mobile app version with similar functionality and design as the web version for convenient access on mobile devices.",
+      "report": "Create a Mobile App Version: Develop a mobile app version with similar functionality and design as the web version for convenient access on mobile devices. - Причина невыполнения",
+      "status": "UNFULFILLED",
+      "date": "30.07.2024"
+    },
+    {
+      "id": "22",
+      "projectId": "2",
+      "title": "Integrate Third-Party Services",
+      "description": "Integrate third-party services and APIs to expand application functionality, such as social media or analytics tools.",
+      "report": "",
+      "status": "EXECUTED",
+      "date": ""
+    },
+    {
+      "id": "23",
+      "projectId": "3",
+      "title": "Build a User Onboarding Process",
+      "description": "Develop an onboarding process for new users including step-by-step instructions and tips for initial setup.",
+      "report": "Build a User Onboarding Process: Develop an onboarding process for new users including step-by-step instructions and tips for initial setup. - Причина невыполнения",
+      "status": "UNFULFILLED",
+      "date": "10.08.2024"
+    },
+    {
+      "id": "24",
+      "projectId": "4",
+      "title": "Implement Data Backup System",
+      "description": "Create a data backup system to protect against data loss and ensure information recovery in case of failure.",
+      "report": "Implement Data Backup System: Create a data backup system to protect against data loss and ensure information recovery in case of failure. - Выполнено",
+      "status": "FULFILLED",
+      "date": "20.08.2024"
+    },
+    {
+      "id": "25",
+      "projectId": "1",
+      "title": "Design a User-friendly Interface",
+      "description": "Ensure the development of an intuitive and user-friendly interface to improve overall user experience and accessibility.",
+      "report": "",
+      "status": "EXECUTED",
+      "date": ""
+    },
+    {
+      "id": "c8ac",
+      "title": "Тестовая задача",
+      "description": "тестовое описание",
+      "projectId": "d6bc",
+      "status": "EXECUTED",
+      "report": "",
+      "date": ""
+    },
+    {
+      "id": "f129",
+      "title": "Еще одна тестовая задача",
+      "description": "Описание...",
+      "projectId": "d6bc",
+      "status": "FULFILLED",
+      "report": "ok",
+      "date": "26.09.2024"
+    },
+    {
+      "id": "ad38",
+      "title": "Обновить всю логику по RTK запросам",
+      "description": "Переписать логику всех запросов, которые как либо связаны с инициализацией состояния в redux.\nСделать экстра-редюсеры, в которых будут инициализироваться части проекта",
+      "projectId": "6451",
+      "status": "EXECUTED",
+      "report": ""
+    },
+    {
+      "id": "0cbf",
+      "title": "Редактирование проекта",
+      "description": "Реализовать возможность редактирования проекта.\nДобавить кнопку, которая будет позволять редактировать изображение, заголовок и описание проекта, а после нажатия кнопки сохранить делать PUT/PATCH запрос на сервер",
+      "projectId": "6451",
+      "status": "FULFILLED",
+      "report": "ok",
+      "date": "27.09.2024"
+    },
+    {
+      "id": "51b2",
+      "title": "Редактирование задачи",
+      "description": "Реализовать возможность редактирования названия и описания задачи, а после нажатия кнопки SAVE делать PUT/PATCH запрос на сервер",
+      "projectId": "6451",
+      "status": "EXECUTED",
+      "report": ""
+    }
+  ]
+}

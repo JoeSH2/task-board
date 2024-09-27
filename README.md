@@ -1,50 +1,43 @@
-# React + TypeScript + Vite
+# Project Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Описание
+**Project Management App** — это SPA-приложение для управления проектами и задачами. Пользователи могут создавать проекты, добавлять к ним описание и устанавливать статус выполнения. В каждом проекте можно создавать задачи, отслеживать их статус, добавлять отчеты о выполнении и удалять как задачи, так и проекты.
 
-Currently, two official plugins are available:
+## Технологии
+Проект создан с использованием следующих технологий:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React** — библиотека для построения пользовательских интерфейсов.
+- **Redux Toolkit** — упрощенное управление состоянием приложения.
+- **RTK Query** — для удобного взаимодействия с сервером.
+- **TypeScript** — строго типизированный JavaScript для улучшения качества кода.
+- **Vite** — быстрый сборщик для разработки и продакшн-сборок.
+- **json-server** — симуляция сервера для хранения и обработки данных.
+- **FSD архитектура** — структурирование приложения для лучшей масштабируемости и поддержки.
+- **Material UI** — для UI-компонентов.
+- **react-hook-form** — библиотека для работы с формами.
 
-## Expanding the ESLint configuration
+## Линтинг и форматирование
+- **ESLint** — для анализа кода.
+- **Prettier** — для автоформатирования.
+- **Stylelint** — для проверки стилей SCSS.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Функциональность
+- Создание и удаление проектов с описанием.
+- Добавление задач в проект.
+- Удаление задач.
+- Установка статусов выполнения для проектов и задач.
+- Написание отчета о выполнении задачи.
 
-- Configure the top-level `parserOptions` property like this:
+## Установка и запуск проекта
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. Клонируйте репозиторий:
+   ```bash
+   git clone https://github.com/yourusername/project-management-app.git
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Установите зависимости:
+   ```bash
+   npm install
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+3. Одновременно запустите json-server и приложение (port:3000):
+   ```bash
+   npm run start:dev
