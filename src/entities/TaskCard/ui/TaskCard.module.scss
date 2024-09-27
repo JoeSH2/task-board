@@ -8,20 +8,16 @@
 
   cursor: pointer;
 
-  background-color: var(--secondary-color);
-  border-radius: 10px;
-  transition: box-shadow 0.2s ease-out;
+  background-color: var(--main-color);
+  border-radius: var(--border-radius-S);
+  transition: background-color 0.2s ease-out;
 
   &:hover {
-    box-shadow: var(--box-shadow-inv);
+    background-color: var(--special-hover-color);
   }
-
-  .active {
-    background-color: var(--secondary-color);
-  }
-  .inactive {
-    background-color: var(--special-color);
-  }
+}
+.active {
+  background-color: var(--secondary-color-hover);
 }
 .removeBtn {
   position: absolute;
@@ -31,11 +27,11 @@
 .icon {
   width: 22px;
   height: 22px;
-  stroke: (var(--error-color));
-  transition: stroke 0.2s ease;
+  color: (var(--error-color));
+  transition: color 0.2s ease;
 
   &:hover {
-    stroke: var(--error-hover-color);
+    color: var(--error-hover-color);
   }
 }
 .title {
@@ -51,6 +47,6 @@
   font-weight: bold;
   color: var(--special-color);
   padding: 6px 8px;
-  border-radius: 4px;
-  background-color: var(--main-color);
+  border-radius: var(--border-radius-S);
+  background-color: var(--secondary-color);
 }

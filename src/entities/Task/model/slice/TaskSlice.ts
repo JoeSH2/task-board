@@ -1,13 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { TaskStatus, TaskType } from '@/entities/Task/types/TaskType.ts';
+import { TaskStatus, TaskType } from '../types/TaskType';
 
 type TaskStatusState = Partial<TaskType>;
 
-const initialState: TaskStatusState = {
-  status: TaskStatus.EXECUTED,
-  report: '',
-};
+const initialState: TaskStatusState = {};
 
 export const taskSlice = createSlice({
   name: 'task',

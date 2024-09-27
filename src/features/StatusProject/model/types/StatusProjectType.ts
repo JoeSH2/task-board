@@ -1,5 +1,5 @@
 export enum StatusProjectType {
-  WORK = 'the works',
+  WORK = 'In Progress',
   HOLD = 'On hold',
   RISK = 'At risk',
   INACTIVE = 'Inactive',

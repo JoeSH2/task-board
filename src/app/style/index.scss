@@ -3,6 +3,10 @@
 @import 'themes/dark';
 @import 'themes/light';
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   font-family: 'Raleway', sans-serif;
   font-optical-sizing: auto;

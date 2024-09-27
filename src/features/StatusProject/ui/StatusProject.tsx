@@ -1,13 +1,13 @@
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
 
-import { StatusProjectType } from '@/features/StatusProject/model/types/StatusProjectType.ts';
-import { useAppDispatch, useAppSelector } from '@/shared/hooks/hookRedux.tsx';
+import { projectAction } from '@/entities/Project';
+import { getProjectStatus } from '@/entities/Project';
+import { StatusProjectType } from '@/features/StatusProject/model/types/StatusProjectType';
+import { useAppDispatch, useAppSelector } from '@/shared/hooks/hookRedux';
 import { cls } from '@/shared/lib/cls.ts';
-import { Checkbox } from '@/shared/ui/Checkbox/Checkbox.tsx';
-import { FlexColumn } from '@/shared/ui/Flex/FlexColumn.tsx';
+import { Checkbox } from '@/shared/ui/Checkbox/Checkbox';
+import { FlexColumn } from '@/shared/ui/Flex/FlexColumn';
 
-import { getStatusProject } from '../model/selectors/getStatusProjectSelectors.ts';
-import { statusProjectAction } from '../model/slice/statusProjectSlice.ts';
 import style from './StatusProject.module.scss';
 
 const stateStatus: StatusProjectType[] = [
@@ -19,11 +19,14 @@ const stateStatus: StatusProjectType[] = [
 
 export const StatusProject: FC = () => {
   const dispatch = useAppDispatch();
-  const activeStatus = useAppSelector(getStatusProject);
+  const activeStatus = useAppSelector(getProjectStatus);
 
-  const handleCheckboxChange = (item: StatusProjectType) => {
-    dispatch(statusProjectAction.setStatus(item));
-  };
+  const handleCheckboxChange = useCallback(
+    (item: StatusProjectType) => {
+      dispatch(projectAction.setStatus(item));
+    },
+    [dispatch]
+  );
 
   return (
     <div className={style.StatusProject}>

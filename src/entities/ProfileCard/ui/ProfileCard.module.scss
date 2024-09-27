@@ -4,10 +4,14 @@
 .icon {
   cursor: pointer;
   display: block;
-  object-fit: contain;
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
+}
+.notifications {
+  cursor: pointer;
+  margin-right: 10px;
+  color: var(--text-color);
+  span {
+    background-color: var(--special-hover-color);
+  }
 }
 .name {
   font-size: var(--font-M);

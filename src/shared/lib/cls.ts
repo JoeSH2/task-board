@@ -1,6 +1,8 @@
+export type ModeClassName = Record<string, boolean | string | undefined>;
+
 export const cls = (
   className: string,
-  mode: Record<string, boolean | string | undefined>,
+  mode: ModeClassName,
   array: Array<string | undefined>
 ): string => {
   return [

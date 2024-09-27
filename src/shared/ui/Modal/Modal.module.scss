@@ -19,7 +19,7 @@
   box-shadow: var(--box-shadow);
   padding: 40px;
   background-color: var(--main-color);
-  border-radius: 20px;
+  border-radius: var(--border-radius-S);
   animation: scaleAni 0.2s forwards;
 }
 

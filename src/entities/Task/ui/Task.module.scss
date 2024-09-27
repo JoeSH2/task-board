@@ -2,17 +2,38 @@
   position: relative;
   flex: 1 1 70%;
   padding: 20px;
-  border: 2px solid var(--special-border-color);
-  border-radius: 10px;
+  border: 2px solid;
+  border-color: var(--special-border-color);
+  border-radius: var(--border-radius-S);
+  box-shadow: var(--box-shadow);
 
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--secondary-color) var(--text-inv-color);
 
+  transition: border-color 0.2s ease-in-out;
+
   .icon {
     height: 65px;
     width: 65px;
     fill: var(--special-color);
+  }
+}
+.fulfiled {
+  border-color: var(--active-color);
+}
+.unfulfiled {
+  border-color: var(--error-color);
+}
+.noData {
+  font-family: var(--font-main);
+  gap: 1.5rem;
+  h1 {
+    font-size: var(--font-XL);
+    font-weight: bold;
+  }
+  p {
+    font-size: var(--font-L);
   }
 }
 .name {
@@ -21,6 +42,7 @@
 }
 .text {
   margin: 20px 0 0 0;
+  text-align: justify;
 }
 .status {
   font-family: var(--font-main);
@@ -28,7 +50,7 @@
   top: 20px;
   right: 20px;
 
-  border-radius: 10px;
+  border-radius: var(--border-radius-S);
   padding: 8px 16px;
   box-shadow: var(--box-shadow);
   background-color: var(--active-color);

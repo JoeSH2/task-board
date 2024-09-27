@@ -1,0 +1,15 @@
+.ModalDeleteProject {
+}
+.title {
+  font-size: var(--font-XL);
+  margin-bottom: 1.5rem;
+}
+.btn_cancel {
+  background-color: var(--error-color);
+  &:hover {
+    background-color: var(--error-hover-color);
+  }
+}
+.btn {
+  padding: 0.5rem 3rem;
+}

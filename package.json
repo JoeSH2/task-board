@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start:server": "json-server --watch json-server/db.json --port 5000",
     "dev": "vite",
+    "start:dev": "concurrently \"yarn dev\" \"yarn start:server\"",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -12,7 +14,12 @@
     "stylelint-scss-check": "stylelint-config-prettier-scss-check"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^6.0.1",
+    "@mui/material": "^6.0.1",
     "@reduxjs/toolkit": "^2.2.7",
+    "json-server": "^1.0.0-beta.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.52.2",
@@ -25,6 +32,7 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
+    "concurrently": "^8.2.2",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",

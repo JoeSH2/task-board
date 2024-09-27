@@ -1,36 +1,40 @@
 import { FC, memo } from 'react';
 
-import { TaskForm } from '@/entities/Task/ui/TaskForm.tsx';
-import ClickSvg from '@/shared/assets/img/click.svg';
-import { useAppSelector } from '@/shared/hooks/hookRedux.tsx';
+import { getTaskSelector, TaskStatus } from '@/entities/Task';
+import { TaskForm } from '@/entities/Task/ui/TaskForm';
+import { useAppSelector } from '@/shared/hooks/hookRedux';
+import { cls, ModeClassName } from '@/shared/lib/cls.ts';
 import { FlexColumn } from '@/shared/ui/Flex/FlexColumn.tsx';
-import { Svg } from '@/shared/ui/Svg/Svg.tsx';
 
 import style from './Task.module.scss';
 
 export const Task: FC = memo(() => {
-  const { status, report, title, description } = useAppSelector(
-    (state) => state.task
-  );
+  const { status, report, title, description, id } =
+    useAppSelector(getTaskSelector);
+
+  const mods: ModeClassName = {
+    [style.fulfiled]: status === TaskStatus.FULFILLED,
+    [style.unfulfiled]: status === TaskStatus.UNFULFILLED,
+  };
 
   if (!title) {
     return (
       <FlexColumn
-        className={style.Task}
         alignItems={'center'}
         justifyContent={'center'}
+        className={cls(style.Task, {}, [style.noData])}
       >
-        <Svg className={style.icon} src={ClickSvg} />
-        <h3 className={style.name}>Select or create a task!</h3>
+        <h1>It's empty so far =(</h1>
+        <p>Add a task!</p>
       </FlexColumn>
     );
   }
 
   return (
-    <div className={style.Task}>
+    <div className={cls(style.Task, mods, [])}>
       <h2 className={style.name}>{title}</h2>
       <p className={style.text}>{description}</p>
-      <TaskForm status={status} report={report} />
+      <TaskForm id={id} status={status} report={report} />
     </div>
   );
 });

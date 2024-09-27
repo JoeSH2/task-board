@@ -5,6 +5,8 @@ export enum TaskStatus {
 }
 
 export interface TaskType {
+  id?: string;
+  projectId?: string;
   title: string;
   description: string;
   report: string;

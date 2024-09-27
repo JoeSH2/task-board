@@ -1,16 +1,14 @@
+import Add from '@mui/icons-material/Add';
 import { FC, MouseEvent, useState } from 'react';
 
 import { getUserIsAuth } from '@/entities/User';
-import PlusSVG from '@/shared/assets/img/plus.svg';
+import { ModalCreateProject } from '@/features/CreateProject/ui/ModalCreateProject/ModalCreateProject.tsx';
 import { useAppSelector } from '@/shared/hooks/hookRedux.tsx';
 import { Button } from '@/shared/ui/Button/Button.tsx';
-import { ModalCreateForm } from '@/shared/ui/ModalCreateForm/ModalCreateForm.tsx';
-import { Svg } from '@/shared/ui/Svg/Svg.tsx';
 
 import style from './CreateProject.module.scss';
 
-export const CreateProject: FC = (props) => {
-  const {} = props;
+export const CreateProject: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const isAuth = useAppSelector(getUserIsAuth);
 
@@ -26,23 +24,10 @@ export const CreateProject: FC = (props) => {
         className={style.createBtn}
         onClick={(e) => onOpenModal(e)}
       >
-        <Svg className={style.icon} src={PlusSVG} />
+        <Add className={style.icon} />
         New project
       </Button>
-      <ModalCreateForm
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        labelInput={'Project name'}
-        placeholderInput={'name...'}
-        labelTextarea={'Describe your project'}
-        placeholderTextarea={'project description...'}
-        submitBtn={'Create project'}
-        title={'New project'}
-        valueInput={''}
-        onChangeInput={() => {}}
-        valueTextarea={''}
-        onChangeTextarea={() => {}}
-      />
+      <ModalCreateProject isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 };

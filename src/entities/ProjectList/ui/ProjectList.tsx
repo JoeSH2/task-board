@@ -1,29 +1,31 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 
-import { getUserIsAuth } from '@/entities/User';
-import { useAppSelector } from '@/shared/hooks/hookRedux.tsx';
-import { FlexColumn } from '@/shared/ui/Flex/FlexColumn.tsx';
+import { useGetProjectsListQuery } from '@/entities/Project';
+import { getProjectsPage } from '@/shared/config/RoutingPath.ts';
 
 import { ProjectCard } from '../../ProjectCard';
 import style from './ProjectList.module.scss';
 
 export const ProjectList: FC = () => {
-  const isAuth = useAppSelector(getUserIsAuth);
+  const { data, isSuccess } = useGetProjectsListQuery();
 
-  if (!isAuth) {
-    return (
-      <FlexColumn justifyContent={'center'} className={style.preLoad}>
-        <h2>This is where your projects should be</h2>
-        <p>Authorize and create your first project!</p>
-      </FlexColumn>
-    );
+  if (!isSuccess) {
+    return <div>...Error data...</div>;
   }
 
   return (
     <div className={style.ProjectList}>
-      <ProjectCard projectName={'Company 1'} tasks={2} />
-      <ProjectCard projectName={'Company 2'} tasks={6} />
-      <ProjectCard projectName={'Company 3'} tasks={25} />
+      {data.map((project, i) => (
+        <Link key={`${project.id}_${i}`} to={getProjectsPage(project.id)}>
+          <ProjectCard
+            img={project.img}
+            status={project.status}
+            projectName={project.title}
+            tasks={project.tasks}
+          />
+        </Link>
+      ))}
     </div>
   );
 };

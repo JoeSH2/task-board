@@ -1,29 +1,30 @@
 .appLight {
-  --main-color: #ffffff;
-  --secondary-color: #e2f1f2;
+  --main-color: #f9fafb;
+  --secondary-color: #eaeff2;
+  --secondary-color-hover: #d0d8de;
 
-  --special-color: #00ac9f;
-  --special-hover-color: #00cac2;
-  --special-border-color: rgba(0, 172, 159, 0.5);
+  --special-color: #58bcae;
+  --special-hover-color: #50a49a;
+  --special-border-color: rgb(55 126 117 / 60%);
 
-  --active-color: #16f3cb;
-  --error-color: #c52764;
-  --error-hover-color: #8d1143;
+  --active-color: #8fe7cd;
+  --error-color: #d32f2f;
+  --error-hover-color: #c62828;
 
-  --disabled-color: rgba(0, 0, 0, 0.15);
-  --box-shadow: 0px 0px 10px 2px #c8ccd2;
-  --box-shadow-inv: inset 11px -11px 16px 3px #21b78e1f;
-  --box-shadow-hold: 0px 0px 15px 3px rgba(58, 116, 154, 0.7);
-  --box-shadow-risk: 0px 0px 15px 3px rgba(126, 33, 69, 0.7);
+  --disabled-color: rgba(112, 112, 112, 0.3);
+  --box-shadow: 0px 4px 12px rgba(161, 161, 161, 0.65);
+  --box-shadow-inv: inset 0px -4px 12px rgba(0, 105, 92, 0.2);
+  --box-shadow-hold: 0px 0px 15px rgba(26, 109, 164, 0.65);
+  --box-shadow-risk: 0px 0px 15px rgba(215, 26, 26, 0.65);
 
-  --modal-back-color: rgba(0, 0, 0, 0.3);
-  --modal-back-hover-color: rgba(0, 0, 0, 0.1);
+  --modal-back-color: rgba(199, 199, 199, 0.7);
+  --modal-back-hover-color: rgba(255, 255, 255, 0.75);
 
-  --switcher-color: #1cabc2;
-  --back-switcher-icon: #aaded0;
+  --switcher-color: #00695c;
+  --back-switcher-icon: #a5d6a7;
 
-  --text-color: #000000;
-  --text-secondary-color: #043443;
-  --text-inv-color: #fafafa;
-  --text-inv-secondary-color: #dbe9f2;
+  --text-color: #37474f;
+  --text-secondary-color: #607d8b;
+  --text-inv-color: #ffffff;
+  --text-inv-secondary-color: #cfd8dc;
 }

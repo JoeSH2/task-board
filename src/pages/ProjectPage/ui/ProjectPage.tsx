@@ -1,78 +1,69 @@
-import { FC } from 'react';
+import { FC, useEffect, useMemo } from 'react';
+import { useParams } from 'react-router-dom';
 
-import { Task } from '@/entities/Task';
-import { TaskStatus, TaskType } from '@/entities/Task/types/TaskType.ts';
-import { getUserIsAuth } from '@/entities/User';
+import {
+  getProjectStatus,
+  projectAction,
+  useGetProjectByIdQuery,
+} from '@/entities/Project';
 import { AddTask } from '@/features/AddTask';
-import { getStatusProject, StatusProject } from '@/features/StatusProject';
-import { StatusProjectType } from '@/features/StatusProject';
-import { TaskList } from '@/features/TaskList';
-import { useAppSelector } from '@/shared/hooks/hookRedux.tsx';
-import { cls } from '@/shared/lib/cls.ts';
+import { DeleteProject } from '@/features/DeleteProject';
+import { StatusProject, StatusProjectType } from '@/features/StatusProject';
+import { useAppDispatch, useAppSelector } from '@/shared/hooks/hookRedux.tsx';
+import { cls, ModeClassName } from '@/shared/lib/cls.ts';
+import { FlexColumn } from '@/shared/ui/Flex/FlexColumn.tsx';
+import { PageWrapper } from '@/shared/ui/PageWrapper/PageWrapper.tsx';
+import { Tasks } from '@/widgets/Tasks';
 
+import { ProjectInfo } from './ProjectInfo/ProjectInfo.tsx';
 import style from './ProjectPage.module.scss';
 
-const tasks: TaskType[] = [
-  {
-    status: TaskStatus.UNFULFILLED,
-    date: '28.05.2024',
-    title: 'Search',
-    report: 'Overdue',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias assumenda atque blanditiis dolor eaque iusto nulla similique sunt vel. Aspernatur delectus eligendi impedit iure non quidem',
-  },
-  {
-    status: TaskStatus.FULFILLED,
-    date: '28.05.2024',
-    title: 'Create profile page',
-    report: 'Realized',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus culpa cum est veniam! Architecto delectus quaerat sit?',
-  },
-  {
-    status: TaskStatus.EXECUTED,
-    date: undefined,
-    title: 'Develop a system for editing tasks',
-    report: '',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit?',
-  },
-];
+const ProjectPage: FC = () => {
+  const { id } = useParams();
+  const dispatch = useAppDispatch();
+  const statusProject = useAppSelector(getProjectStatus);
+  const { data, isLoading } = useGetProjectByIdQuery(id);
 
-export const ProjectPage: FC = () => {
-  const isAuth = useAppSelector(getUserIsAuth);
-  const statusProject = useAppSelector(getStatusProject);
+  const mode: ModeClassName = useMemo(() => {
+    return {
+      [style.hold]: statusProject === StatusProjectType.HOLD,
+      [style.risk]: statusProject === StatusProjectType.RISK,
+      [style.inactive]: statusProject === StatusProjectType.INACTIVE,
+    };
+  }, [statusProject]);
+
+  useEffect(() => {
+    if (data) {
+      dispatch(projectAction.initialProject(data));
+    }
+  }, [data, dispatch]);
+
+  if (isLoading) {
+    return (
+      <FlexColumn
+        fullHeight
+        fullWight
+        justifyContent={'center'}
+        alignItems={'center'}
+      >
+        ...LOADING...
+      </FlexColumn>
+    );
+  }
+
+  if (!data) {
+    return <div>DATA ERROR!</div>;
+  }
 
   return (
-    <div
-      className={cls(
-        style.ProjectPage,
-        {
-          [style.hold]: statusProject === StatusProjectType.HOLD,
-          [style.risk]: statusProject === StatusProjectType.RISK,
-          [style.inactive]: statusProject === StatusProjectType.INACTIVE,
-        },
-        []
-      )}
-    >
+    <PageWrapper className={cls(style.ProjectPage, mode, [])}>
       <StatusProject />
-      <h1 className={style.title}>{isAuth ? 'Company 1' : 'Test project'}</h1>
-      <p className={style.text}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
-        accusantium, beatae commodi eius eligendi eum ipsa maxime minus nihil
-        nisi nobis numquam quas reiciendis reprehenderit similique soluta
-        tenetur? Eum, iusto.
-      </p>
+      <ProjectInfo img={data.img} info={data.info} title={data.title} />
       <AddTask />
-      <div className={style.wrapper}>
-        <TaskList tasks={tasks} />
-        <Task />
-      </div>
-      {!isAuth && (
-        <div className={style.testData}>
-          <b>Authorize to access all features of the application!</b>
-        </div>
-      )}
-    </div>
+      <Tasks />
+      <DeleteProject />
+    </PageWrapper>
   );
 };
+
+export default ProjectPage;

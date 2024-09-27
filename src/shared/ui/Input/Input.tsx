@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, FC, InputHTMLAttributes, memo } from 'react';
 
-import { cls } from '../../lib/cls.ts';
+import { cls, ModeClassName } from '../../lib/cls.ts';
 import style from './Input.module.scss';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -8,17 +8,30 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   >;
+  clearStyle?: boolean;
 }
 
 export const Input: FC<InputProps> = memo((props) => {
-  const { className, placeholder = 'type...', disabled, type, hook } = props;
+  const {
+    className,
+    clearStyle,
+    placeholder = 'type...',
+    disabled,
+    type,
+    hook,
+  } = props;
+
+  const mode: ModeClassName = {
+    [style.disabled]: disabled,
+    [style.clear]: clearStyle,
+  };
 
   return (
     <input
       {...hook}
       type={type}
       disabled={disabled}
-      className={cls(style.Input, { [style.disabled]: disabled }, [className])}
+      className={cls(style.Input, mode, [className])}
       placeholder={placeholder}
     />
   );

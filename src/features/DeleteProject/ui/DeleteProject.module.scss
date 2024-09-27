@@ -1,0 +1,9 @@
+.DeleteProject {
+  margin-top: 2rem;
+}
+.delete_btn {
+  background-color: var(--error-color);
+  &:hover {
+    background-color: var(--error-hover-color);
+  }
+}

@@ -1,13 +1,17 @@
-import { FC, useCallback, useState } from 'react';
+import { FC, memo, useCallback, useEffect, useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { useSelector } from 'react-redux';
 
-import { taskAction } from '@/entities/Task';
-import { TaskStatus } from '@/entities/Task/types/TaskType.ts';
+import { getProjectById } from '@/entities/Project';
+import { useGetTasksListQuery } from '@/entities/Task/model/api/apiGetTasks.ts';
 import { useAppDispatch } from '@/shared/hooks/hookRedux.tsx';
 import { Button } from '@/shared/ui/Button/Button.tsx';
 import { FlexRow } from '@/shared/ui/Flex/FlexRow.tsx';
 import { Textarea } from '@/shared/ui/Textarea/Textarea.tsx';
 
+import { useSaveTaskMutation } from '../model/api/apiSaveTask';
+import { taskAction } from '../model/slice/TaskSlice';
+import { TaskStatus, TaskType } from '../model/types/TaskType';
 import style from './Task.module.scss';
 
 interface TaskForm {
@@ -21,30 +25,39 @@ const buttonReportTask: Array<TaskStatus> = [
 ];
 
 interface TaskFormState {
+  id?: string;
   status?: TaskStatus;
   report?: string;
 }
 
-export const TaskForm: FC<TaskFormState> = ({ status, report }) => {
+export const TaskForm: FC<TaskFormState> = memo(({ status, id, report }) => {
   const dispatch = useAppDispatch();
+  const projectId = useSelector(getProjectById);
+  const { refetch } = useGetTasksListQuery({ projectId });
   const [isDisabled, setIsDisabled] = useState(false);
-
-  const { control, handleSubmit, getValues, setFocus } = useForm<TaskForm>();
+  const [saveTask] = useSaveTaskMutation();
+  const { control, handleSubmit, getValues, setFocus, reset } =
+    useForm<TaskForm>();
 
   const onSubmit: SubmitHandler<TaskForm> = useCallback(
-    ({ report }) => {
-      dispatch(
-        taskAction.editTask({
-          date:
-            status !== TaskStatus.EXECUTED
-              ? new Date().toLocaleDateString('ru-RU')
-              : undefined,
-          report,
-          status: status,
-        })
-      );
+    async ({ report }) => {
+      const task: Partial<TaskType> = {
+        id: id,
+        date:
+          status !== TaskStatus.EXECUTED
+            ? new Date().toLocaleDateString('ru-RU')
+            : '',
+        report,
+        status: status,
+      };
+      try {
+        await saveTask(task);
+        await refetch();
+      } catch (e) {
+        console.log(e);
+      }
     },
-    [dispatch, status]
+    [refetch, saveTask, status]
   );
 
   const onSelectStatus = (value: TaskStatus) => {
@@ -53,6 +66,11 @@ export const TaskForm: FC<TaskFormState> = ({ status, report }) => {
       setIsDisabled(value !== TaskStatus.EXECUTED);
     } else setFocus('report');
   };
+
+  useEffect(() => {
+    reset({ report });
+    setIsDisabled(status !== TaskStatus.EXECUTED);
+  }, [report, reset]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={style.form} action="">
@@ -85,10 +103,10 @@ export const TaskForm: FC<TaskFormState> = ({ status, report }) => {
         ))}
       </FlexRow>
       <FlexRow justifyContent={'flex-end'} className={style.saveBlock}>
-        <Button className={style.saveBtn} type={'submit'} onClick={() => {}}>
+        <Button className={style.saveBtn} type={'submit'}>
           Save
         </Button>
       </FlexRow>
     </form>
   );
-};
+});

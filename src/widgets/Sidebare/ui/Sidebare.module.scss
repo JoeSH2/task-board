@@ -4,14 +4,13 @@
   flex-direction: column;
   font-family: var(--font-secondary);
   top: 140px;
-
-  width: 360px;
+  min-width: 280px;
   height: calc(100vh - 200px);
 
   box-shadow: var(--box-shadow);
 
   padding: 30px 20px;
-  border-radius: 20px;
+  border-radius: var(--border-radius-XL);
   margin-right: 100px;
 
   font-family: var(--font-main);

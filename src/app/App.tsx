@@ -1,6 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
-
-import { ProjectPage } from '@/pages/ProjectPage';
+import AppRouter from '@/app/route/AppRouter';
 import { Container } from '@/shared/ui/Container/Container.tsx';
 import { Webrapper } from '@/shared/ui/Webrapper/Webrapper.tsx';
 import { Footer } from '@/widgets/Footer';
@@ -14,9 +12,7 @@ function App() {
         <Header />
         <Webrapper>
           <Sidebare />
-          <Routes location={'/'}>
-            <Route path={'/'} element={<ProjectPage />} />
-          </Routes>
+          <AppRouter />
         </Webrapper>
       </Container>
       <Footer />

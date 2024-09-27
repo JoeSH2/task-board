@@ -8,7 +8,8 @@ import { FlexProps } from './types.ts';
 export const FlexRow: FC<FlexProps> = ({
   children,
   className,
-  full,
+  fullHeight,
+  fullWight,
   alignItems = 'flex-start',
   justifyContent = 'flex-start',
   ...otherProps
@@ -17,7 +18,8 @@ export const FlexRow: FC<FlexProps> = ({
     <div
       {...otherProps}
       style={{
-        width: full ? '100%' : 'auto',
+        width: fullWight ? '100%' : undefined,
+        height: fullHeight ? '100%' : undefined,
         alignItems: alignItems,
         justifyContent: justifyContent,
       }}

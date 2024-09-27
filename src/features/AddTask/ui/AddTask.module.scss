@@ -5,10 +5,11 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  padding-left: 12px;
 
   .icon {
     width: 25px;
     height: 25px;
-    fill: var(--text-inv-color);
+    color: var(--text-inv-color);
   }
 }

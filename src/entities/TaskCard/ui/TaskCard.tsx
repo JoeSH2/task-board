@@ -1,13 +1,12 @@
 import { FC } from 'react';
+import { useSelector } from 'react-redux';
 
-import { taskAction } from '@/entities/Task';
-import { TaskType } from '@/entities/Task/types/TaskType.ts';
-import CrossSvg from '@/shared/assets/img/cross.svg';
+import { getTaskById, taskAction, TaskType } from '@/entities/Task';
+import { DeleteTask } from '@/features/DeleteTask';
 import { useAppDispatch } from '@/shared/hooks/hookRedux.tsx';
-import { Button } from '@/shared/ui/Button/Button.tsx';
+import { cls } from '@/shared/lib/cls.ts';
 import { FlexColumn } from '@/shared/ui/Flex/FlexColumn.tsx';
 import { FlexRow } from '@/shared/ui/Flex/FlexRow.tsx';
-import { Svg } from '@/shared/ui/Svg/Svg.tsx';
 
 import style from './TaskCard.module.scss';
 
@@ -15,38 +14,25 @@ interface TaskCardProps {
   task: TaskType;
 }
 
-export const TaskCard: FC<TaskCardProps> = (props) => {
-  const { task } = props;
-  const { date, status, title, description, report } = task;
-  const dispath = useAppDispatch();
-
-  const getInitialTask = () => {
-    dispath(
-      taskAction.initialTask({
-        date,
-        status,
-        title,
-        description,
-        report,
-      })
-    );
+export const TaskCard: FC<TaskCardProps> = ({ task }) => {
+  const dispatch = useAppDispatch();
+  const id = useSelector(getTaskById);
+  const isActiveCard = id === task.id;
+  const onChangeTask = () => {
+    dispatch(taskAction.initialTask(task));
   };
 
   return (
-    <FlexColumn onClick={getInitialTask} className={style.TaskCard}>
-      <Button
-        clearStyle
-        className={style.removeBtn}
-        onClick={() => {
-          console.log(1);
-        }}
-      >
-        <Svg className={style.icon} src={CrossSvg} />
-      </Button>
-      <h5 className={style.title}>{title}</h5>
-      <FlexRow full alignItems={'center'} justifyContent={'space-between'}>
-        <p className={style.status}>{status}</p>
-        {date && <p className={style.date}>{task.date}</p>}
+    <FlexColumn
+      fullWight
+      onClick={onChangeTask}
+      className={cls(style.TaskCard, { [style.active]: isActiveCard }, [])}
+    >
+      <DeleteTask taskId={task.id} />
+      <h5 className={style.title}>{task.title}</h5>
+      <FlexRow fullWight alignItems={'center'} justifyContent={'space-between'}>
+        <p className={style.status}>{task.status}</p>
+        {task.date && <p className={style.date}>{task.date}</p>}
       </FlexRow>
     </FlexColumn>
   );

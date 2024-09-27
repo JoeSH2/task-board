@@ -1,8 +1,10 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 import { ProfileCard } from '@/entities/ProfileCard';
 import { getUserIsAuth } from '@/entities/User';
 import { Login } from '@/features/Login';
+import { getMainPage } from '@/shared/config/RoutingPath.ts';
 import { useAppSelector } from '@/shared/hooks/hookRedux.tsx';
 import { FlexRow } from '@/shared/ui/Flex/FlexRow.tsx';
 
@@ -19,7 +21,9 @@ export const Header: FC = () => {
         justifyContent={'space-between'}
         className={style.wrapper}
       >
-        <h1 className={style.title}>TaskBoard</h1>
+        <Link to={getMainPage()} className={style.title}>
+          TaskBoard
+        </Link>
         <nav className={style.nav}>
           {!isAuth ? (
             <>
