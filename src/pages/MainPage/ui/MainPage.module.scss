@@ -1,2 +1,39 @@
 .MainPage {
 }
+.title {
+  font-size: var(--font-LOGO);
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-right: 1rem;
+}
+.icon {
+  color: var(--special-color);
+  height: var(--font-LOGO);
+  width: var(--font-LOGO);
+}
+.info {
+  margin-top: 1rem;
+  text-align: justify;
+  line-height: 1.4;
+  color: var(--text-secondary-color);
+}
+.description {
+  color: var(--text-secondary-color);
+  text-align: justify;
+  h5 {
+    margin: 1rem 0 0.8rem 0;
+  }
+  ul {
+    display: grid;
+    gap: 20px;
+
+    .key {
+      font-family: var(--font-secondary);
+      text-transform: uppercase;
+      background-color: var(--special-hover-color);
+      border-radius: 6px;
+      padding: 5px 10px;
+      color: var(--text-inv-color);
+    }
+  }
+}
