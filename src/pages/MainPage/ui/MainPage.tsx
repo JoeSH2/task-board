@@ -37,10 +37,10 @@ const MainPage: FC = () => {
       <div className={style.description}>
         <h5>Проект создан с использованием следующих технологий:</h5>
         <ul>
-          {Object.entries(description).map(([key, text]) => (
-            <li>
+          {Object.entries(description).map(([key, text], index) => (
+            <li key={key + index}>
               <b className={style.key}>{key}</b>
-              {text}
+              <p>{text}</p>
             </li>
           ))}
         </ul>

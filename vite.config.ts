@@ -23,8 +23,15 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "src/app/style/variables.scss";`,
+        api: 'modern-compiler', // or "modern"
       },
     },
   },
+  // css: {
+  //   preprocessorOptions: {
+  //     scss: {
+  //       additionalData: `@import "src/app/style/variables.scss";`,
+  //     },
+  //   },
+  // },
 });

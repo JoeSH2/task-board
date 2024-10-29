@@ -5,31 +5,31 @@ import {
   getProjectSelector,
   useGetProjectsListQuery,
 } from '@/entities/Project';
-import { useSaveProjectMutation } from '@/features/SaveProject';
 import { useAppSelector } from '@/shared/hooks/hookRedux.tsx';
 import { Button } from '@/shared/ui/Button/Button.tsx';
 
-import style from './SaveProject.module.scss';
+import { useSaveStatusMutation } from '../model/api/apiSaveStatus';
+import style from './SaveStatus.module.scss';
 
-export const SaveProject: FC = () => {
-  const [saveProject] = useSaveProjectMutation();
+export const SaveStatus: FC = () => {
+  const [saveStatus] = useSaveStatusMutation();
   const project = useAppSelector(getProjectSelector);
   const { refetch } = useGetProjectsListQuery();
 
-  const onSaveProject = useCallback(async () => {
+  const onSaveStatus = useCallback(async () => {
     try {
-      await saveProject(project).unwrap();
+      await saveStatus(project).unwrap();
       await refetch();
     } catch (e) {
       console.log(e);
     }
-  }, [project, refetch, saveProject]);
+  }, [project, refetch, SaveStatus]);
 
   return (
-    <div className={style.SaveProject}>
-      <Button onClick={onSaveProject} className={style.saveBtn}>
+    <div className={style.SaveStatus}>
+      <Button onClick={onSaveStatus} className={style.saveBtn}>
         <Done className={style.btnIcon} />
-        Save project
+        Save status
       </Button>
     </div>
   );

@@ -27,7 +27,15 @@
     display: grid;
     gap: 20px;
 
+    li {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
     .key {
+      display: inline-block;
+      width: max-content;
       font-family: var(--font-secondary);
       text-transform: uppercase;
       background-color: var(--special-hover-color);

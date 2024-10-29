@@ -44,16 +44,16 @@
       "title": "Canvas",
       "info": "Canvas is an intuitive platform designed for collaborative web design and development. It allows teams to build responsive layouts with ease, leveraging a rich set of customizable UI components. The platform features real-time collaboration, version control, and seamless integration with front-end frameworks like React and Vue.",
       "img": "https://blog.logrocket.com/wp-content/uploads/2022/07/understanding-watchers-vue.png",
-      "tasks": 2,
+      "tasks": 1,
       "status": "Inactive"
     },
     {
-      "id": "6451",
-      "title": "Разработка этого проекта",
       "info": "Приложение для отслеживания хода выполнения проектов и задач внутри них.\nС отзывчивым интерфейсом и возможностью смены цветовой темы.\nСоздание проекта подразумевает одну большую задачу, которая делится на блоки, состоящие из заданий, которые можно выполнять и отчитываться по ним. А при завершении проекта, можно придать ему соответствующий статус!",
-      "img": "https://res.cloudinary.com/practicaldev/image/fetch/s--G5AWXQ2H--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/i/v4y43jjfj7u5r8to8qdu.png",
-      "tasks": 3,
-      "status": "In Progress"
+      "title": "Разработка проекта",
+      "img": "https://cdn-icons-png.flaticon.com/512/5339/5339181.png",
+      "status": "In Progress",
+      "tasks": 4,
+      "id": "6451"
     }
   ],
   "tasks": [
@@ -292,15 +292,6 @@
       "date": ""
     },
     {
-      "id": "f129",
-      "title": "Еще одна тестовая задача",
-      "description": "Описание...",
-      "projectId": "d6bc",
-      "status": "FULFILLED",
-      "report": "ok",
-      "date": "26.09.2024"
-    },
-    {
       "id": "ad38",
       "title": "Обновить всю логику по RTK запросам",
       "description": "Переписать логику всех запросов, которые как либо связаны с инициализацией состояния в redux.\nСделать экстра-редюсеры, в которых будут инициализироваться части проекта",
@@ -325,6 +316,15 @@
       "projectId": "6451",
       "status": "EXECUTED",
       "report": ""
+    },
+    {
+      "id": "798f",
+      "title": "Рефакторинг фичи SaveProject",
+      "description": "Сделать из SaveProject -> SaveStatus",
+      "projectId": "6451",
+      "status": "FULFILLED",
+      "report": "Выполнено!",
+      "date": "29.10.2024"
     }
   ]
 }

@@ -1,0 +1,18 @@
+.EditProjectHead {
+  background-color: var(--secondary-color-hover);
+  color: var(--text-secondary-color);
+
+  padding: 2rem;
+  border-radius: var(--border-radius-XL) var(--border-radius-XL) 0 0;
+  border-bottom: 2px solid var(--active-color);
+  margin: -2rem -2rem -1rem -2rem;
+
+  font-size: var(--font-XL);
+  gap: 1rem;
+  .titleEdit {
+    text-transform: uppercase;
+  }
+  .titleWrapper {
+    gap: 0.5rem;
+  }
+}

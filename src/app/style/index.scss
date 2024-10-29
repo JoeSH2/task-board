@@ -1,7 +1,7 @@
-@import 'reset';
-@import 'variables';
-@import 'themes/dark';
-@import 'themes/light';
+@use 'reset';
+@use 'variables';
+@use 'themes/dark';
+@use 'themes/light';
 
 html {
   scroll-behavior: smooth;

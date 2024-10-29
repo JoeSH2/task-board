@@ -4,6 +4,7 @@ export {
 } from './models/api/apiGetProjects';
 export {
   getProjectById,
+  getProjectImageSelector,
   getProjectSelector,
   getProjectStatus,
   getProjectTasksSelector,

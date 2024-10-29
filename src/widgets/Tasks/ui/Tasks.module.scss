@@ -1,10 +1,10 @@
 .Tasks {
   font-family: var(--font-secondary);
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 30% 70%;
   height: 490px;
 
-  gap: 20px;
+  gap: 1rem;
   margin-top: 20px;
 
   @media screen and (max-width: 430px) {

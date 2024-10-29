@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { getProjectById, useGetProjectsListQuery } from '@/entities/Project';
 import { useGetTasksListQuery } from '@/entities/Task/model/api/apiGetTasks.ts';
 import { useDeleteTaskMutation } from '@/features/DeleteTask';
-import { useSaveProjectMutation } from '@/features/SaveProject';
+import { useSaveStatusMutation } from '@/features/SaveStatus';
 import { Button } from '@/shared/ui/Button/Button.tsx';
 
 import style from './DeleteTask.module.scss';
@@ -18,7 +18,7 @@ export const DeleteTask: FC<DeleteTaskProps> = (props) => {
   const { taskId } = props;
   const projectId = useSelector(getProjectById);
   const [deleteTask] = useDeleteTaskMutation();
-  const [saveProject] = useSaveProjectMutation();
+  const [saveStatus] = useSaveStatusMutation();
   const { data: tasks, refetch: refetchTasks } = useGetTasksListQuery({
     projectId,
   });
@@ -37,7 +37,7 @@ export const DeleteTask: FC<DeleteTaskProps> = (props) => {
 
   useEffect(() => {
     if (tasks) {
-      saveProject({
+      saveStatus({
         id: projectId,
         tasks: tasks.length,
       }).unwrap();

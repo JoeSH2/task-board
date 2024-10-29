@@ -1,6 +1,9 @@
 .Webrapper {
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 280px auto;
+  gap: 5rem;
+
   margin: 0 auto;
   padding: 60px 15px;
 

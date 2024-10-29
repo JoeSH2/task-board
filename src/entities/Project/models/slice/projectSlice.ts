@@ -4,11 +4,18 @@ import { IProject } from '@/entities/Project';
 import { StatusProjectType } from '@/features/StatusProject';
 
 interface ProjectState {
-  project: Partial<IProject>;
+  project: IProject;
 }
 
 const initialState: ProjectState = {
-  project: {},
+  project: {
+    img: '',
+    info: '',
+    title: '',
+    tasks: NaN,
+    status: StatusProjectType.INACTIVE,
+    id: '',
+  },
 };
 
 export const projectSlice = createSlice({

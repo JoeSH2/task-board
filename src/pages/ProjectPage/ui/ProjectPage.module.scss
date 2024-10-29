@@ -15,6 +15,12 @@
   text-transform: uppercase;
   gap: 10px;
 }
+.editBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem;
+}
 .text {
   display: block;
   width: 100%;

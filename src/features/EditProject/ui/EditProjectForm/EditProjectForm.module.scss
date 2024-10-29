@@ -1,0 +1,48 @@
+.EditProjectForm {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.formBlock {
+  display: grid;
+  grid-template-columns: 15% 1fr;
+  gap: 1rem;
+
+  label {
+    flex: 1 0 12rem;
+    cursor: auto;
+  }
+
+  .inputText {
+    border-bottom: 1px solid var(--special-color);
+    padding: 10px 10px 0 10px;
+    transition:
+      background-color 0.2s ease,
+      border-bottom 0.2s ease;
+    &:focus {
+      background-color: var(--secondary-color-hover);
+      border-bottom: 1px solid var(--active-color);
+    }
+  }
+  .textareaText {
+    height: 100%;
+  }
+}
+.inputBlock {
+  align-items: flex-end;
+}
+.textareaBlock {
+  height: 100%;
+}
+.submitBlock {
+  gap: 1rem;
+
+  .errorBtn {
+    background-color: var(--error-color);
+
+    &:hover {
+      background-color: var(--error-hover-color);
+    }
+  }
+}

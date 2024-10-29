@@ -6,7 +6,7 @@ import { getProjectById, useGetProjectsListQuery } from '@/entities/Project';
 import { TaskStatus, TaskType } from '@/entities/Task';
 import { useGetTasksListQuery } from '@/entities/Task/model/api/apiGetTasks.ts';
 import { useAddTaskApiMutation } from '@/features/AddTask';
-import { useSaveProjectMutation } from '@/features/SaveProject';
+import { useSaveStatusMutation } from '@/features/SaveStatus';
 import { Button } from '@/shared/ui/Button/Button.tsx';
 import { FlexRow } from '@/shared/ui/Flex/FlexRow.tsx';
 import { Input } from '@/shared/ui/Input/Input.tsx';
@@ -30,7 +30,7 @@ export const ModalAddTask: FC<ModalAddTaskProps> = (props) => {
   const { control, handleSubmit, reset } = useForm<AddTaskForm>();
   const projectId = useSelector(getProjectById);
   const [addTask] = useAddTaskApiMutation();
-  const [saveProject] = useSaveProjectMutation();
+  const [saveStatus] = useSaveStatusMutation();
   const { data: tasks, refetch: refetchTasks } = useGetTasksListQuery({
     projectId: projectId,
   });
@@ -64,7 +64,7 @@ export const ModalAddTask: FC<ModalAddTaskProps> = (props) => {
     const updateProjectAndRefetch = async () => {
       if (tasks) {
         try {
-          await saveProject({
+          await saveStatus({
             id: projectId,
             tasks: tasks.length,
           }).unwrap();

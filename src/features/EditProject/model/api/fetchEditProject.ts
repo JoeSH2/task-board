@@ -1,14 +1,14 @@
 import { IProject } from '@/entities/Project';
 import { apiRtkQuery } from '@/shared/api/apiRtkQuery.ts';
 
-const saveProjectApi = apiRtkQuery.injectEndpoints({
+const editProjectApi = apiRtkQuery.injectEndpoints({
   endpoints: (build) => ({
-    saveProject: build.mutation<IProject, Partial<IProject>>({
+    editProject: build.mutation<IProject, IProject>({
       query: (args) => {
         const { id, ...body } = args;
         return {
           url: `projects/${id}`,
-          method: 'PATCH',
+          method: 'PUT',
           body,
         };
       },
@@ -16,4 +16,4 @@ const saveProjectApi = apiRtkQuery.injectEndpoints({
   }),
 });
 
-export const { useSaveProjectMutation } = saveProjectApi;
+export const { useEditProjectMutation } = editProjectApi;
