@@ -41,20 +41,27 @@ export const EditProjectForm: FC = () => {
     const { img, info, title } = getValues();
     const modifiedProject = {
       id: project.id,
-      info,
       title,
       img,
       status: project.status,
       tasks: project.tasks,
+      info,
     };
     try {
-      console.log('click');
       await editProject(modifiedProject).unwrap();
       dispatch(projectAction.initialProject(modifiedProject));
       await refetch();
     } catch (e) {
       console.log(e);
     }
+  };
+
+  const onCancel = () => {
+    reset({
+      img: project.img,
+      info: project.info,
+      title: project.title,
+    });
   };
 
   useEffect(() => {
@@ -69,7 +76,7 @@ export const EditProjectForm: FC = () => {
         alignItems={'flex-end'}
         className={`${style.formBlock} ${style.inputBlock}`}
       >
-        <label>Project name: </label>
+        <label>Project name:</label>
         <Controller
           name="title"
           control={control}
@@ -87,7 +94,7 @@ export const EditProjectForm: FC = () => {
         alignItems={'flex-end'}
         className={`${style.formBlock} ${style.inputBlock}`}
       >
-        <label>Logo: </label>
+        <label>Logo:</label>
         <Controller
           name="img"
           control={control}
@@ -102,7 +109,7 @@ export const EditProjectForm: FC = () => {
         />
       </FlexRow>
       <FlexRow className={`${style.formBlock} ${style.textareaBlock}`}>
-        <label>Describe the project: </label>
+        <label>Describe the project:</label>
         <Controller
           name="info"
           control={control}
@@ -116,8 +123,10 @@ export const EditProjectForm: FC = () => {
         />
       </FlexRow>
       <FlexRow justifyContent={'flex-end'} className={style.submitBlock}>
-        <Button className={style.errorBtn}>Отмена</Button>
-        <Button type="submit">Сохранить</Button>
+        <Button onClick={onCancel} className={style.errorBtn}>
+          Cancel
+        </Button>
+        <Button type="submit">Save project</Button>
       </FlexRow>
     </form>
   );

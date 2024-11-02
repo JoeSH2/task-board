@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { IProject } from '@/entities/Project';
+import { projectsApi } from '@/entities/Project/models/api/apiGetProjects.ts';
 import { StatusProjectType } from '@/features/StatusProject';
 
 interface ProjectState {
@@ -28,16 +29,14 @@ export const projectSlice = createSlice({
     setStatus: (state, action: PayloadAction<StatusProjectType>) => {
       state.project.status = action.payload;
     },
-    addProjectTasks: (state) => {
-      if (state.project.tasks) {
-        state.project.tasks = state.project.tasks + 1;
+  },
+  extraReducers: (builder) => {
+    builder.addMatcher(
+      projectsApi.endpoints.getProjectById.matchFulfilled,
+      (state, { payload }) => {
+        state.project = payload;
       }
-    },
-    deleteProjectTasks: (state) => {
-      if (state.project.tasks) {
-        state.project.tasks = state.project.tasks - 1;
-      }
-    },
+    );
   },
 });
 
