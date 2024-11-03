@@ -1,0 +1,14 @@
+a.text:active,
+a.text:hover,
+a.text {
+  text-decoration: none;
+}
+.Link {
+  position: relative;
+  color: var(--text-color);
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--text-secondary-color);
+  }
+}

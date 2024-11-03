@@ -26,6 +26,11 @@
 .wrapper {
   height: 100%;
   gap: 10px;
+
+  span {
+    font-family: var(--font-secondary);
+    text-transform: uppercase;
+  }
 }
 .status {
   font-size: var(--font-S);

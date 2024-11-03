@@ -3,8 +3,21 @@
   width: 100%;
   min-height: 80px;
 
+  font-family: var(--font-main);
+
+  color: var(--text-secondary-color);
   background-color: var(--secondary-color);
+  box-shadow: var(--box-shadow-mini);
+
+  margin-top: 2rem;
+}
+.title {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: var(--font-LOGO);
+  font-weight: bold;
+  color: var(--special-color);
 }
 .wrapper {
-  padding: 0 15px;
+  padding: 1.5rem 0;
 }
