@@ -1,0 +1,15 @@
+.ProjectListView {
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+.btn {
+  display: flex;
+  border-radius: var(--border-radius-XL);
+  padding: 5px;
+}
+.cancelBtn {
+  background-color: var(--error-color);
+  &:hover {
+    background-color: var(--error-hover-color);
+  }
+}

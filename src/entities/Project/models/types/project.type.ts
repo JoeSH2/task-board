@@ -1,6 +1,6 @@
 import { StatusProjectType } from '@/features/StatusProject';
 
-export interface IProject {
+export interface Project {
   id: string;
   title: string;
   img?: string;

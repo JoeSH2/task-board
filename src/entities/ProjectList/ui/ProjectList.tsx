@@ -2,9 +2,9 @@ import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useGetProjectsListQuery } from '@/entities/Project';
+import { ProjectCard } from '@/entities/ProjectCard';
 import { getProjectsPage } from '@/shared/config/RoutingPath.ts';
 
-import { ProjectCard } from '../../ProjectCard';
 import style from './ProjectList.module.scss';
 
 export const ProjectList: FC = () => {

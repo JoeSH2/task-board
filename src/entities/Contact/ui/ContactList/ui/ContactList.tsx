@@ -17,8 +17,13 @@ export const ContactList: FC<ContactListProps> = (props) => {
     <FlexColumn className={style.ContactList}>
       <h5>{title}</h5>
       <FlexColumn className={style.contactBlock}>
-        {contacts.map((item) => (
-          <ContactItem icon={item.icon} label={item.label} href={item.href} />
+        {contacts.map((item, i) => (
+          <ContactItem
+            key={`${item}_${i}`}
+            icon={item.icon}
+            label={item.label}
+            href={item.href}
+          />
         ))}
       </FlexColumn>
     </FlexColumn>
