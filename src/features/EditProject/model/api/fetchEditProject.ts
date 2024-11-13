@@ -12,6 +12,7 @@ const editProjectApi = apiRtkQuery.injectEndpoints({
           body,
         };
       },
+      invalidatesTags: [{ type: 'Projects', id: 'LIST' }],
     }),
   }),
 });

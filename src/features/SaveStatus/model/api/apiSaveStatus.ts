@@ -12,6 +12,7 @@ const saveStatusApi = apiRtkQuery.injectEndpoints({
           body,
         };
       },
+      invalidatesTags: [{ type: 'Projects', id: 'LIST' }],
     }),
   }),
 });

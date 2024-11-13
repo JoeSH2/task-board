@@ -1,6 +1,6 @@
 import { closestCenter, DndContext } from '@dnd-kit/core';
 import { SortableContext } from '@dnd-kit/sortable';
-import { ReactNode, useEffect } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 
 import { Project } from '@/entities/Project';
 import { useSortingListDnd } from '@/shared/hooks/useSortingListDnd.tsx';
@@ -9,20 +9,27 @@ interface SortingListProps<T> {
   values: T[];
   renderList: (items: T[]) => ReactNode;
   onFetchValues?: (items: T[]) => void;
+  isFetching: boolean;
 }
 
 export const SortingList = <T extends Project>({
   values,
   renderList,
   onFetchValues,
+  isFetching,
 }: SortingListProps<T>) => {
   const { items, sensors, handleDragEnd } = useSortingListDnd({ data: values });
+  const [isFetch, setIsFetch] = useState(false);
 
   useEffect(() => {
-    if (onFetchValues) {
+    setIsFetch(isFetching);
+  }, [isFetching]);
+
+  useEffect(() => {
+    if (onFetchValues && isFetch) {
       onFetchValues(items);
     }
-  }, [onFetchValues]);
+  }, [isFetch, items, onFetchValues]);
 
   return (
     <DndContext

@@ -1,9 +1,12 @@
 import { Done, NotInterested, SwapVert } from '@mui/icons-material';
-import { FC, MouseEvent, useState } from 'react';
+import { FC, useState } from 'react';
 
+import { Project, useGetProjectsListQuery } from '@/entities/Project';
 import { ProjectList } from '@/entities/ProjectList';
 import { SortingProject } from '@/features/SortingProject/ui/SortingProject.tsx';
+import { StorageKey } from '@/shared/consts/storageKey.ts';
 import { cls } from '@/shared/lib/cls.ts';
+import { localStorageWrapper } from '@/shared/lib/storageWrapper.ts';
 import { Button } from '@/shared/ui/Button/Button.tsx';
 import { FlexRow } from '@/shared/ui/Flex/FlexRow.tsx';
 
@@ -11,27 +14,41 @@ import style from './ProjectListView.module.scss';
 
 export const ProjectListView: FC = () => {
   const [isSorting, setIsSorting] = useState(false);
+  const [isFetching, setIsFetching] = useState(false);
 
-  const setViewList = (e: MouseEvent) => {
-    e.stopPropagation();
-    e.preventDefault();
-    setIsSorting((prev) => !prev);
+  const sortedProjectsId = localStorageWrapper.get<string[]>(
+    StorageKey.projects
+  );
+  const { data } = useGetProjectsListQuery({
+    sortId: sortedProjectsId,
+  });
+
+  const setViewSortingProjectsList = () => {
+    setIsSorting(true);
+  };
+  const setViewProjectsList = () => {
+    setIsSorting(false);
+    setIsFetching(false);
   };
 
-  const handleFetchSortList = () => {
-    console.log('handleFetchSortList');
-    setIsSorting(false);
+  const handleFetchSortList = (projects: Project[]) => {
+    setIsFetching(true);
+    if (isFetching) {
+      const array: string[] = projects.map((project) => project.id);
+      localStorageWrapper.set(StorageKey.projects, array);
+      setViewProjectsList();
+    }
   };
 
   if (!isSorting) {
     return (
       <>
         <FlexRow className={style.ProjectListView} justifyContent={'flex-end'}>
-          <Button className={style.btn} onClick={(e) => setViewList(e)}>
+          <Button className={style.btn} onClick={setViewSortingProjectsList}>
             <SwapVert fontSize={'small'} />
           </Button>
         </FlexRow>
-        <ProjectList />
+        <ProjectList data={data} />
       </>
     );
   }
@@ -41,7 +58,7 @@ export const ProjectListView: FC = () => {
       <FlexRow className={style.ProjectListView} justifyContent={'flex-end'}>
         <Button
           className={cls(style.btn, {}, [style.cancelBtn])}
-          onClick={() => setIsSorting(false)}
+          onClick={setViewProjectsList}
         >
           <NotInterested fontSize={'small'} />
         </Button>
@@ -52,7 +69,11 @@ export const ProjectListView: FC = () => {
           <Done fontSize={'small'} />
         </Button>
       </FlexRow>
-      <SortingProject onFetch={() => {}} />
+      <SortingProject
+        data={data}
+        isFetching={isFetching}
+        onFetch={handleFetchSortList}
+      />
     </>
   );
 };
