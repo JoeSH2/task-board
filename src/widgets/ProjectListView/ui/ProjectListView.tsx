@@ -14,7 +14,7 @@ import style from './ProjectListView.module.scss';
 
 export const ProjectListView: FC = () => {
   const [isSorting, setIsSorting] = useState(false);
-  const [isFetching, setIsFetching] = useState(false);
+  const [isSavingSort, setIsSavingSort] = useState(false);
 
   const sortedProjectsId = localStorageWrapper.get<string[]>(
     StorageKey.projects
@@ -23,20 +23,23 @@ export const ProjectListView: FC = () => {
     sortId: sortedProjectsId,
   });
 
-  const setViewSortingProjectsList = () => {
+  const enterSortingMode = () => {
     setIsSorting(true);
   };
-  const setViewProjectsList = () => {
+  const exitSortingMode = () => {
     setIsSorting(false);
-    setIsFetching(false);
+    setIsSavingSort(false);
   };
 
-  const handleFetchSortList = (projects: Project[]) => {
-    setIsFetching(true);
-    if (isFetching) {
+  const onFetchingSortedProjects = () => {
+    setIsSavingSort(true);
+  };
+
+  const saveSortedProjects = (projects: Project[]) => {
+    if (isSavingSort) {
       const array: string[] = projects.map((project) => project.id);
       localStorageWrapper.set(StorageKey.projects, array);
-      setViewProjectsList();
+      exitSortingMode();
     }
   };
 
@@ -44,7 +47,7 @@ export const ProjectListView: FC = () => {
     return (
       <>
         <FlexRow className={style.ProjectListView} justifyContent={'flex-end'}>
-          <Button className={style.btn} onClick={setViewSortingProjectsList}>
+          <Button className={style.btn} onClick={enterSortingMode}>
             <SwapVert fontSize={'small'} />
           </Button>
         </FlexRow>
@@ -58,12 +61,12 @@ export const ProjectListView: FC = () => {
       <FlexRow className={style.ProjectListView} justifyContent={'flex-end'}>
         <Button
           className={cls(style.btn, {}, [style.cancelBtn])}
-          onClick={setViewProjectsList}
+          onClick={exitSortingMode}
         >
           <NotInterested fontSize={'small'} />
         </Button>
         <Button
-          onClick={handleFetchSortList}
+          onClick={onFetchingSortedProjects}
           className={cls(style.btn, {}, [style.doneBtn])}
         >
           <Done fontSize={'small'} />
@@ -71,8 +74,8 @@ export const ProjectListView: FC = () => {
       </FlexRow>
       <SortingProject
         data={data}
-        isFetching={isFetching}
-        onFetch={handleFetchSortList}
+        isFetching={isSavingSort}
+        onFetch={saveSortedProjects}
       />
     </>
   );

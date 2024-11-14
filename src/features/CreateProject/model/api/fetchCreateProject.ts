@@ -9,6 +9,7 @@ const createProjectApi = apiRtkQuery.injectEndpoints({
         method: 'POST',
         body: project,
       }),
+      invalidatesTags: [{ type: 'Projects', id: 'LIST' }],
     }),
   }),
 });

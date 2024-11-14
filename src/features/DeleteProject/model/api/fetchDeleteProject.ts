@@ -8,6 +8,7 @@ const projectDeleteApi = apiRtkQuery.injectEndpoints({
         url: `/projects/${id}`,
         method: 'DELETE',
       }),
+      invalidatesTags: [{ type: 'Projects', id: 'LIST' }],
     }),
   }),
 });
