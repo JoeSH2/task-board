@@ -11,4 +11,4 @@ export {
   getProjectTitleSelector,
 } from './models/selectors/getProjectSelectors';
 export { projectAction, projectReducer } from './models/slice/projectSlice';
-export type { IProject } from './models/types/project.types.ts';
+export type { Project } from './models/types/project.type.ts';

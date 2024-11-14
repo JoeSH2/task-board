@@ -18,6 +18,8 @@ const description = {
     ' — структурирование приложения для лучшей масштабируемости и поддержки.',
   'Material UI': ' — для UI-компонентов.',
   'react-hook-form': ' — библиотека для работы с формами.',
+  'React-dnd':
+    ' — помогает создавать сложные интерфейсы перетаскивания, сохраняя при этом разъединенность компонентов',
 };
 
 const MainPage: FC = () => {
@@ -34,13 +36,16 @@ const MainPage: FC = () => {
         задачи, отслеживать их статус, добавлять отчеты о выполнении и удалять
         как задачи, так и проекты.
       </p>
+      {/*<TestComponent />*/}
       <div className={style.description}>
         <h5>Проект создан с использованием следующих технологий:</h5>
         <ul>
           {Object.entries(description).map(([key, text], index) => (
             <li key={key + index}>
-              <b className={style.key}>{key}</b>
-              <p>{text}</p>
+              <p>
+                <b className={style.key}>{key}</b>
+                {text}
+              </p>
             </li>
           ))}
         </ul>

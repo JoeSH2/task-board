@@ -35,7 +35,7 @@
 
     .key {
       display: inline-block;
-      width: max-content;
+      text-wrap: nowrap;
       font-family: var(--font-secondary);
       text-transform: uppercase;
       background-color: var(--special-hover-color);

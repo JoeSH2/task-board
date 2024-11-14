@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 
+import { StorageKey } from '@/shared/consts/storageKey.ts';
 import { Theme } from '@/shared/consts/theme.ts';
+import { localStorageWrapper } from '@/shared/lib/storageWrapper.ts';
 import { ThemeContext } from '@/shared/lib/ThemeContext.tsx';
 
 export const useTheme = () => {
@@ -20,7 +22,7 @@ export const useTheme = () => {
     }
     setTheme?.(newTheme);
     document.body.className = newTheme;
-    window.localStorage.setItem('theme', newTheme);
+    localStorageWrapper.set(StorageKey.theme, newTheme);
   };
 
   return { theme, toggleTheme };

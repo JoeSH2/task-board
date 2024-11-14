@@ -1,13 +1,15 @@
 import { FC, ReactNode, useEffect, useState } from 'react';
 
+import { StorageKey } from '@/shared/consts/storageKey.ts';
 import { Theme } from '@/shared/consts/theme.ts';
+import { localStorageWrapper } from '@/shared/lib/storageWrapper.ts';
 import { ThemeContext } from '@/shared/lib/ThemeContext.tsx';
 
 interface ThemeProviderProps {
   children?: ReactNode;
 }
 
-const actualTheme: Theme | null = window.localStorage.getItem('theme') as Theme;
+const actualTheme = localStorageWrapper.get<Theme | null>(StorageKey.theme);
 
 const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
   const [theme, setTheme] = useState(actualTheme || Theme.LIGHT);

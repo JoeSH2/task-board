@@ -1,8 +1,9 @@
 .ProjectCard {
   color: var(--text-inv-color);
   background-color: var(--special-hover-color);
+  height: 80px;
   padding: 10px;
-  gap: 20px;
+  gap: 1rem;
   border-radius: var(--border-radius-S);
   cursor: pointer;
   box-shadow: var(--box-shadow);
@@ -46,4 +47,8 @@
 .title {
   font-size: var(--font-M);
   font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 156px;
 }

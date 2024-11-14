@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
-import { ProjectList } from '@/entities/ProjectList';
 import { CreateProject } from '@/features/CreateProject';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { cls } from '@/shared/lib/cls.ts';
+import { ProjectListView } from '@/widgets/ProjectListView';
 
 import style from './Sidebare.module.scss';
 
@@ -13,7 +13,7 @@ export const Sidebare: FC = () => {
       <h3 className={style.title}>My projects</h3>
       <ThemeSwitcher className={style.toggleTheme} />
       <CreateProject />
-      <ProjectList />
+      <ProjectListView />
     </aside>
   );
 };

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 
-import { IProject, useGetProjectsListQuery } from '@/entities/Project';
+import { Project, useGetProjectsListQuery } from '@/entities/Project';
 import { useCreateProjectMutation } from '@/features/CreateProject';
 import { StatusProjectType } from '@/features/StatusProject';
 import { Button } from '@/shared/ui/Button/Button.tsx';
@@ -17,7 +17,7 @@ interface ModalCreateProjectProps {
   setIsOpen: (isOpen: boolean) => void;
 }
 
-interface CreateProjectForm extends Partial<IProject> {
+interface CreateProjectForm extends Partial<Project> {
   title: string;
   info: string;
   img: string;

@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { IProject } from '@/entities/Project';
-import { projectsApi } from '@/entities/Project/models/api/apiGetProjects.ts';
 import { StatusProjectType } from '@/features/StatusProject';
 
+import { projectsApi } from '../api/apiGetProjects.ts';
+import { Project } from '../types/project.type.ts';
+
 interface ProjectState {
-  project: IProject;
+  project: Project;
 }
 
 const initialState: ProjectState = {
@@ -23,7 +24,7 @@ export const projectSlice = createSlice({
   name: 'project',
   initialState,
   reducers: {
-    initialProject: (state, action: PayloadAction<IProject>) => {
+    initialProject: (state, action: PayloadAction<Project>) => {
       state.project = action.payload;
     },
     setStatus: (state, action: PayloadAction<StatusProjectType>) => {

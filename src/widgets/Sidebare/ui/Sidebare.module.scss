@@ -2,7 +2,7 @@
   position: sticky;
   display: flex;
   flex-direction: column;
-  font-family: var(--font-secondary);
+  gap: 1rem;
   top: 140px;
   width: 280px;
   height: calc(100vh - 200px);
@@ -21,11 +21,17 @@
   font-weight: 600;
   font-size: var(--font-XL);
   text-transform: uppercase;
-  margin-bottom: 40px;
+  margin-bottom: 1rem;
 }
 .toggleTheme {
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 1rem;
+}
+.doneBtn {
+  background-color: var(--active-color);
+  &:hover {
+    background-color: var(--active-color);
+  }
 }
 
 @media screen and (max-width: 430px) {

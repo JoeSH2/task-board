@@ -1,0 +1,13 @@
+.TestComponent {
+  font-family: var(--font-secondary);
+  margin: 2rem 0;
+}
+.list {
+  display: grid;
+  gap: 1rem;
+  li {
+    text-transform: uppercase;
+    background-color: var(--secondary-color-hover);
+    padding: 1rem;
+  }
+}

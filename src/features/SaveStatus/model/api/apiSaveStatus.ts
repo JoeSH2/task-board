@@ -1,9 +1,9 @@
-import { IProject } from '@/entities/Project';
+import { Project } from '@/entities/Project';
 import { apiRtkQuery } from '@/shared/api/apiRtkQuery.ts';
 
 const saveStatusApi = apiRtkQuery.injectEndpoints({
   endpoints: (build) => ({
-    saveStatus: build.mutation<IProject, Partial<IProject>>({
+    saveStatus: build.mutation<Project, Partial<Project>>({
       query: (args) => {
         const { id, ...body } = args;
         return {
@@ -12,6 +12,7 @@ const saveStatusApi = apiRtkQuery.injectEndpoints({
           body,
         };
       },
+      invalidatesTags: [{ type: 'Projects', id: 'LIST' }],
     }),
   }),
 });
