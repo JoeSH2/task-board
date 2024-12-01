@@ -1,14 +1,18 @@
 import { FC } from 'react';
 
-import { Task } from '@/entities/Task';
+import { Task, TaskType } from '@/entities/Task';
 import { TaskList } from '@/features/TaskList';
 
 import style from './Tasks.module.scss';
 
-export const Tasks: FC = () => {
+interface TasksProps {
+  tasks: TaskType[] | undefined;
+}
+
+export const Tasks: FC<TasksProps> = ({ tasks }) => {
   return (
     <div className={style.Tasks}>
-      <TaskList />
+      <TaskList tasks={tasks} />
       <Task />
     </div>
   );

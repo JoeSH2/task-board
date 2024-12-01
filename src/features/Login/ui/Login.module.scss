@@ -1,40 +1,99 @@
 .Login {
-  min-width: 550px;
+  width: 620px;
+  background-color: var(--secondary-color);
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  padding: 3rem;
 }
-.title {
+.infoTitle {
   position: relative;
-  text-align: center;
-  font-size: var(--font-XL);
-  text-transform: uppercase;
-  font-weight: 800;
-  margin-bottom: 60px;
+  margin-bottom: 3rem;
+  gap: 1rem;
 
-  &:before {
+  &::before {
     content: '';
     position: absolute;
-    bottom: -30px;
+    bottom: -1.5rem;
     left: 50%;
-    height: 1px;
-    width: 70%;
-    background: var(--special-color);
-    transform: translate(-50%, 50%);
+    transform: translateX(-50%);
+    height: 2px;
+    width: 40%;
+    background-color: var(--active-color);
+  }
+
+  .image {
+    position: absolute;
+    right: 7.6rem;
+    height: 60px;
+  }
+  .title {
+    font-size: var(--font-LOGO);
+    font-weight: bold;
+    color: var(--special-color);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 6px;
   }
 }
-.form {
+
+.loginForm {
   display: grid;
-  gap: 20px;
+  gap: 2rem;
 }
-.blockForm {
-  gap: 20px;
+
+.inputWrapper {
+  gap: 0.2rem;
+
+  label {
+    cursor: auto;
+    text-align: start;
+    font-size: 0.9rem;
+    color: var(--text-secondary-color);
+    text-transform: uppercase;
+  }
+
+  .input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    background: none;
+    border: 1px solid var(--special-border-color);
+    border-radius: 4px;
+    outline: none;
+    transition:
+      border-color 0.3s ease-in-out,
+      box-shadow 0.3s ease-in-out;
+
+    &:focus {
+      border-color: var(--active-color);
+      box-shadow: 0 0 8px var(--active-color);
+    }
+  }
 }
-.text {
-  flex: 0 0 25%;
+
+.btnSubmit {
+  padding: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: var(--active-color);
+  }
+
+  &:disabled {
+    background-color: var(--disabled-color);
+    cursor: not-allowed;
+  }
 }
-.input {
-  flex: 1 0 auto;
-  border-bottom: 1px solid var(--special-color);
-  padding: 4px 12px;
-}
-.btn {
-  margin-top: 20px;
+.register {
+  margin-top: 0.6rem;
+  font-size: var(--font-S);
+  color: var(--text-secondary-color);
+  a {
+    font-weight: 500;
+    text-decoration: underline;
+    color: var(--text-color);
+  }
 }

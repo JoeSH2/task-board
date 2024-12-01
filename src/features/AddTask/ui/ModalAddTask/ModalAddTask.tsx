@@ -2,7 +2,7 @@ import { FC, useEffect } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 
-import { getProjectById, useGetProjectsListQuery } from '@/entities/Project';
+import { getProjectById } from '@/entities/Project';
 import { TaskStatus, TaskType } from '@/entities/Task';
 import { useGetTasksListQuery } from '@/entities/Task/model/api/apiGetTasks.ts';
 import { useAddTaskApiMutation } from '@/features/AddTask';
@@ -31,10 +31,9 @@ export const ModalAddTask: FC<ModalAddTaskProps> = (props) => {
   const projectId = useSelector(getProjectById);
   const [addTask] = useAddTaskApiMutation();
   const [saveStatus] = useSaveStatusMutation();
-  const { data: tasks, refetch: refetchTasks } = useGetTasksListQuery({
+  const { data: tasks, refetch } = useGetTasksListQuery({
     projectId: projectId,
   });
-  const { refetch: refetchProjects } = useGetProjectsListQuery();
 
   const onCreateSubmit: SubmitHandler<AddTaskForm> = async ({
     title,
@@ -48,7 +47,7 @@ export const ModalAddTask: FC<ModalAddTaskProps> = (props) => {
         status: TaskStatus.EXECUTED,
         report: '',
       }).unwrap();
-      await refetchTasks();
+      await refetch();
       reset();
       setIsOpen(false);
     } catch (e) {
@@ -68,14 +67,13 @@ export const ModalAddTask: FC<ModalAddTaskProps> = (props) => {
             id: projectId,
             tasks: tasks.length,
           }).unwrap();
-          await refetchProjects();
         } catch (e) {
           console.log(e);
         }
       }
     };
     updateProjectAndRefetch();
-  }, [tasks]);
+  }, [projectId, saveStatus, tasks]);
 
   return (
     <Modal className={style.ModalAddTask} setIsOpen={setIsOpen} isOpen={isOpen}>

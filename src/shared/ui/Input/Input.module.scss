@@ -1,3 +1,8 @@
+.wrapper {
+  position: relative;
+  display: grid;
+  width: 100%;
+}
 .Input {
   border: 1px solid var(--special-color);
   border-radius: var(--border-radius-S);
@@ -12,4 +17,20 @@
 }
 .clear {
   all: unset;
+}
+.error {
+  position: absolute;
+  top: 110%;
+  left: 0.3rem;
+  font-size: var(--font-S);
+  color: var(--error-color);
+  animation: animation 0.5s forwards;
+}
+
+@keyframes animation {
+  0% {
+    left: -0.3rem;
+  }
+  100% {
+  }
 }

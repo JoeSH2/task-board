@@ -1,6 +1,10 @@
 import fs from 'fs';
-import path from 'path';
 import jsonServer from 'json-server';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const server = jsonServer.create();
 
@@ -54,6 +58,6 @@ server.use((req, res, next) => {
 server.use(router);
 
 // запуск сервера
-server.listen(8000, () => {
-  console.log('server is running on 8000 port');
+server.listen(5000, () => {
+  console.log('server is running on 5000 port');
 });

@@ -16,8 +16,9 @@ interface TaskCardProps {
 
 export const TaskCard: FC<TaskCardProps> = ({ task }) => {
   const dispatch = useAppDispatch();
-  const id = useSelector(getTaskById);
-  const isActiveCard = id === task.id;
+  const activeTaskId = useSelector(getTaskById);
+  const isActiveCard = activeTaskId === task.id;
+
   const onChangeTask = () => {
     dispatch(taskAction.initialTask(task));
   };

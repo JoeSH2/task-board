@@ -1,9 +1,6 @@
 import { FC, memo, useCallback, useEffect, useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import { useSelector } from 'react-redux';
 
-import { getProjectById } from '@/entities/Project';
-import { useGetTasksListQuery } from '@/entities/Task/model/api/apiGetTasks.ts';
 import { useAppDispatch } from '@/shared/hooks/hookRedux.tsx';
 import { Button } from '@/shared/ui/Button/Button.tsx';
 import { FlexRow } from '@/shared/ui/Flex/FlexRow.tsx';
@@ -32,8 +29,6 @@ interface TaskFormState {
 
 export const TaskForm: FC<TaskFormState> = memo(({ status, id, report }) => {
   const dispatch = useAppDispatch();
-  const projectId = useSelector(getProjectById);
-  const { refetch } = useGetTasksListQuery({ projectId });
   const [isDisabled, setIsDisabled] = useState(false);
   const [saveTask] = useSaveTaskMutation();
   const { control, handleSubmit, getValues, setFocus, reset } =
@@ -52,12 +47,11 @@ export const TaskForm: FC<TaskFormState> = memo(({ status, id, report }) => {
       };
       try {
         await saveTask(task);
-        await refetch();
       } catch (e) {
         console.log(e);
       }
     },
-    [refetch, saveTask, status]
+    [id, saveTask, status]
   );
 
   const onSelectStatus = (value: TaskStatus) => {
@@ -70,7 +64,7 @@ export const TaskForm: FC<TaskFormState> = memo(({ status, id, report }) => {
   useEffect(() => {
     reset({ report });
     setIsDisabled(status !== TaskStatus.EXECUTED);
-  }, [report, reset]);
+  }, [report]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={style.form} action="">

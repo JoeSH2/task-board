@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { ProfileCard } from '@/entities/ProfileCard';
 import { getUserIsAuth } from '@/entities/User';
-import { Login } from '@/features/Login';
-import { getMainPage } from '@/shared/config/RoutingPath.ts';
+import { getLoginPage, getMainPage } from '@/shared/config/RoutingPath.ts';
 import { useAppSelector } from '@/shared/hooks/hookRedux.tsx';
 import { FlexRow } from '@/shared/ui/Flex/FlexRow.tsx';
 
@@ -26,10 +25,9 @@ export const Header: FC = () => {
         </Link>
         <nav className={style.nav}>
           {!isAuth ? (
-            <>
-              <Button onClick={() => {}}>Sign Up</Button>
-              <Login />
-            </>
+            <Link to={getLoginPage()}>
+              <Button>Sign in</Button>
+            </Link>
           ) : (
             <ProfileCard />
           )}

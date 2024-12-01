@@ -22,7 +22,7 @@ export const useTheme = () => {
     }
     setTheme?.(newTheme);
     document.body.className = newTheme;
-    localStorageWrapper.set(StorageKey.theme, newTheme);
+    localStorageWrapper.set(StorageKey.THEME, newTheme);
   };
 
   return { theme, toggleTheme };

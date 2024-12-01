@@ -14,6 +14,10 @@ export const tasksApi = apiRtkQuery.injectEndpoints({
           params: { projectId },
         };
       },
+      providesTags: (result) =>
+        result
+          ? result.map(({ id }) => ({ type: 'Task', id }))
+          : [{ type: 'Task', id: 'LIST' }],
       transformResponse: (rec: TaskType[]) => {
         return rec;
       },

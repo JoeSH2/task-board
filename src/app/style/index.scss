@@ -4,6 +4,7 @@
 @use 'themes/light';
 
 html {
+  height: 100vh;
   scroll-behavior: smooth;
 }
 
@@ -24,6 +25,10 @@ html {
 }
 
 .app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
   font-size: var(--font-M);
   color: var(--text-color);
   background-color: var(--main-color);

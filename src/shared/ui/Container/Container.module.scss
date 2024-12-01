@@ -1,5 +1,6 @@
 .Container {
-  max-width: 1400px;
+  flex-grow: 1;
+  width: 1400px;
   margin: 0 auto;
 
   @media screen and (max-width: 430px) {

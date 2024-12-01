@@ -1,8 +1,8 @@
 {
-  "user": [
+  "users": [
     {
       "id": "1",
-      "login": "admin",
+      "username": "admin",
       "password": "admin"
     }
   ],
@@ -64,7 +64,7 @@
       "description": "Implement a search functionality for the database, including filtering by key fields and displaying results in a list format.",
       "report": "Search: Implement a search functionality for the database, including filtering by key fields and displaying results in a list format. - Причина невыполнения",
       "status": "UNFULFILLED",
-      "date": "15.01.2024"
+      "date": "25.11.2024"
     },
     {
       "id": "2",
@@ -298,7 +298,7 @@
       "projectId": "6451",
       "status": "FULFILLED",
       "report": "Сделано в projectSlice, теперь при успешном запросе данных через RTK Query данные записываются в store state прямо в projectSlice",
-      "date": "02.11.2024"
+      "date": "25.11.2024"
     },
     {
       "id": "0cbf",

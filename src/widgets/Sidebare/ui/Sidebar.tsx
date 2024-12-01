@@ -7,7 +7,7 @@ import { ProjectListView } from '@/widgets/ProjectListView';
 
 import style from './Sidebare.module.scss';
 
-export const Sidebare: FC = () => {
+export const Sidebar: FC = () => {
   return (
     <aside className={cls(style.Sidebare, {}, [])}>
       <h3 className={style.title}>My projects</h3>

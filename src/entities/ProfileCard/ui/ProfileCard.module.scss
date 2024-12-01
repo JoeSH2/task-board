@@ -1,5 +1,5 @@
 .ProfileCard {
-  gap: 20px;
+  gap: 1rem;
 }
 .icon {
   cursor: pointer;
@@ -15,4 +15,15 @@
 }
 .name {
   font-size: var(--font-M);
+}
+.userBlock {
+  cursor: pointer;
+  gap: 1rem;
+  padding: 0.6rem 0.4rem;
+  border-radius: var(--border-radius-XL);
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background: var(--secondary-color);
+  }
 }

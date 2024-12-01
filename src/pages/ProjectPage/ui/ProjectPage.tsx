@@ -2,12 +2,13 @@ import { FC, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { getProjectStatus, useGetProjectByIdQuery } from '@/entities/Project';
+import { useGetTasksListQuery } from '@/entities/Task/model/api/apiGetTasks.ts';
 import { AddTask } from '@/features/AddTask';
 import { DeleteProject } from '@/features/DeleteProject';
 import { StatusProject, StatusProjectType } from '@/features/StatusProject';
 import { useAppSelector } from '@/shared/hooks/hookRedux.tsx';
 import { cls, ModeClassName } from '@/shared/lib/cls.ts';
-import { FlexColumn } from '@/shared/ui/Flex/FlexColumn.tsx';
+import { Loader } from '@/shared/ui/Loader/Loader.tsx';
 import { PageWrapper } from '@/shared/ui/PageWrapper/PageWrapper.tsx';
 import { Tasks } from '@/widgets/Tasks';
 
@@ -17,9 +18,10 @@ import style from './ProjectPage.module.scss';
 const ProjectPage: FC = () => {
   const { id } = useParams();
   const statusProject = useAppSelector(getProjectStatus);
-  const { data, isLoading } = useGetProjectByIdQuery(id, {
+  const { isFetching, isError } = useGetProjectByIdQuery(id, {
     refetchOnMountOrArgChange: true,
   });
+  const { data: tasks } = useGetTasksListQuery({ projectId: id });
 
   const mode: ModeClassName = useMemo(() => {
     return {
@@ -29,20 +31,15 @@ const ProjectPage: FC = () => {
     };
   }, [statusProject]);
 
-  if (isLoading) {
+  if (isFetching) {
     return (
-      <FlexColumn
-        fullHeight
-        fullWight
-        justifyContent={'center'}
-        alignItems={'center'}
-      >
-        ...LOADING...
-      </FlexColumn>
+      <PageWrapper className={cls(style.ProjectPage, mode, [])}>
+        <Loader height={'100%'} message={`Loading project`} />
+      </PageWrapper>
     );
   }
 
-  if (!data) {
+  if (isError) {
     return <div>DATA ERROR!</div>;
   }
 
@@ -51,7 +48,7 @@ const ProjectPage: FC = () => {
       <StatusProject />
       <ProjectInfo />
       <AddTask />
-      <Tasks />
+      <Tasks tasks={tasks} />
       <DeleteProject />
     </PageWrapper>
   );

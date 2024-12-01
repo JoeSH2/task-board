@@ -1,12 +1,19 @@
 import { FC } from 'react';
 
-import { PageWrapper } from '@/shared/ui/PageWrapper/PageWrapper.tsx';
+import { Login } from '@/features/Login';
+import { FlexRow } from '@/shared/ui/Flex/FlexRow.tsx';
+
+import style from './LoginPage.module.scss';
 
 const LoginPage: FC = () => {
   return (
-    <PageWrapper>
-      <p>LoginPage</p>
-    </PageWrapper>
+    <FlexRow
+      alignItems={'center'}
+      justifyContent={'center'}
+      className={style.LoginPage}
+    >
+      <Login />
+    </FlexRow>
   );
 };
 

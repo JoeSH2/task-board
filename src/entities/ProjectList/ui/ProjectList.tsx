@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Project } from '@/entities/Project';
@@ -11,14 +11,10 @@ interface ProjectListProps {
   data: Project[] | undefined;
 }
 
-export const ProjectList: FC<ProjectListProps> = ({ data }) => {
-  if (!data) {
-    return <div>...Error data...</div>;
-  }
-
+export const ProjectList: FC<ProjectListProps> = memo(({ data }) => {
   return (
     <div className={style.ProjectList}>
-      {data.map((project, i) => (
+      {data?.map((project, i) => (
         <Link key={`${project.id}_${i}`} to={getProjectsPage(project.id)}>
           <ProjectCard
             img={project.img}
@@ -30,4 +26,4 @@ export const ProjectList: FC<ProjectListProps> = ({ data }) => {
       ))}
     </div>
   );
-};
+});

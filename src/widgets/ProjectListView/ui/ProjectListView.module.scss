@@ -13,3 +13,26 @@
     background-color: var(--error-hover-color);
   }
 }
+.emptyList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+
+  background-color: var(--main-color);
+  border-radius: var(--border-radius-M);
+
+  padding: 1.3rem;
+
+  h3 {
+    text-transform: uppercase;
+    font-size: var(--font-L);
+    text-align: center;
+    color: var(--text-secondary-color);
+    a {
+      text-decoration: underline;
+      color: var(--text-secondary-color);
+    }
+  }
+}

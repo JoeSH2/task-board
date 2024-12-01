@@ -2,11 +2,7 @@ import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import {
-  getProjectById,
-  getProjectTitleSelector,
-  useGetProjectsListQuery,
-} from '@/entities/Project';
+import { getProjectById, getProjectTitleSelector } from '@/entities/Project';
 import { useDeleteAllTasksProjectMutation } from '@/features/DeleteTask';
 import { getMainPage } from '@/shared/config/RoutingPath.ts';
 import { cls } from '@/shared/lib/cls.ts';
@@ -29,7 +25,6 @@ export const ModalDeleteProject: FC<ModalDeleteProjectProps> = (props) => {
   const projectId = useSelector(getProjectById);
   const [deleteProject] = useDeleteProjectMutation();
   const [deleteAllTasksProject] = useDeleteAllTasksProjectMutation();
-  const { refetch } = useGetProjectsListQuery();
 
   const onClose = () => {
     setIsOpen(false);
@@ -40,7 +35,6 @@ export const ModalDeleteProject: FC<ModalDeleteProjectProps> = (props) => {
       try {
         await deleteAllTasksProject(projectId);
         await deleteProject(projectId);
-        await refetch();
         setIsOpen(false);
         navigate(getMainPage());
       } catch (e) {

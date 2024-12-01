@@ -12,6 +12,7 @@ const saveTaskApi = apiRtkQuery.injectEndpoints({
           body,
         };
       },
+      invalidatesTags: (result, error, { id }) => [{ type: 'Task', id }],
     }),
   }),
 });

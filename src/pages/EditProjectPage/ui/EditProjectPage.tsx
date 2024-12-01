@@ -7,6 +7,7 @@ import {
   EditProjectHead,
   EditProjectStatus,
 } from '@/features/EditProject';
+import { Loader } from '@/shared/ui/Loader/Loader.tsx';
 import { PageWrapper } from '@/shared/ui/PageWrapper/PageWrapper.tsx';
 
 import style from './EditProjectPage.module.scss';
@@ -17,7 +18,11 @@ const EditProjectPage: FC = () => {
 
   if (isLoading) {
     //TODO сделать лоадер
-    return <div>Loading</div>;
+    return (
+      <PageWrapper className={style.EditProjectPage}>
+        <Loader height={'100%'} message={`Loading edit project page`} />
+      </PageWrapper>
+    );
   }
 
   return (

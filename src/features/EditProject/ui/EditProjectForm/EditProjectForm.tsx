@@ -2,11 +2,7 @@ import { FC, useEffect } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 
-import {
-  getProjectSelector,
-  projectAction,
-  useGetProjectsListQuery,
-} from '@/entities/Project';
+import { getProjectSelector, projectAction } from '@/entities/Project';
 import { useAppDispatch } from '@/shared/hooks/hookRedux.tsx';
 import { Button } from '@/shared/ui/Button/Button.tsx';
 import { FlexRow } from '@/shared/ui/Flex/FlexRow.tsx';
@@ -25,7 +21,6 @@ interface EditProjectFormProps {
 export const EditProjectForm: FC = () => {
   const dispatch = useAppDispatch();
   const [editProject] = useEditProjectMutation();
-  const { refetch } = useGetProjectsListQuery();
   const project = useSelector(getProjectSelector);
 
   const { control, handleSubmit, reset, getValues } =
@@ -50,7 +45,6 @@ export const EditProjectForm: FC = () => {
     try {
       await editProject(modifiedProject).unwrap();
       dispatch(projectAction.initialProject(modifiedProject));
-      await refetch();
     } catch (e) {
       console.log(e);
     }

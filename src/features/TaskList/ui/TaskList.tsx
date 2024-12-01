@@ -2,49 +2,53 @@ import { FC, memo, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { getTaskById, taskAction } from '@/entities/Task';
-import { useGetTasksListQuery } from '@/entities/Task/model/api/apiGetTasks';
+import { getTaskById, taskAction, TaskType } from '@/entities/Task';
+import { useGetTasksListQuery } from '@/entities/Task/model/api/apiGetTasks.ts';
 import { TaskCard } from '@/entities/TaskCard';
+import { TaskListEmpty } from '@/features/TaskList/ui/TaskListEmpty/TaskListEmpty.tsx';
 import { useAppDispatch } from '@/shared/hooks/hookRedux.tsx';
 import { FlexColumn } from '@/shared/ui/Flex/FlexColumn.tsx';
+import { Loader } from '@/shared/ui/Loader/Loader.tsx';
 
 import style from './TaskList.module.scss';
 
-export const TaskList: FC = memo(() => {
-  const { id } = useParams();
+interface TaskListProps {
+  tasks: TaskType[] | undefined;
+}
+
+export const TaskList: FC<TaskListProps> = memo(({ tasks }) => {
+  const { id: projectId } = useParams();
   const dispatch = useAppDispatch();
   const taskId = useSelector(getTaskById);
-  const { data, isSuccess } = useGetTasksListQuery({
-    projectId: id,
-  });
-  useEffect(() => {
-    if (data) {
-      const mountTask = data.find((task) => task.id === taskId);
-      dispatch(taskAction.initialTask(mountTask || data[0]));
-    }
-  }, [data, dispatch, taskId]);
+  const { isError, isLoading } = useGetTasksListQuery({ projectId });
 
-  if (!isSuccess) {
-    return <div>...ERROR DATA...</div>;
+  useEffect(() => {
+    if (tasks && tasks.length) {
+      const mountTask = tasks.find((task) => task.id === taskId);
+      dispatch(taskAction.initialTask(mountTask || tasks[0]));
+    }
+  }, [tasks, dispatch]);
+
+  if (isError) {
+    return <div>...ERROR tasks...</div>;
   }
 
-  if (!data.length) {
+  if (isLoading) {
     return (
-      <FlexColumn justifyContent={'center'} className={style.noData_wrapper}>
-        <h1 className={style.noData_title}>
-          You don't have any project tasks yet
-        </h1>
-        <p className={style.noData_text}>
-          Create your first project task and get started on it!
-        </p>
+      <FlexColumn className={style.TaskList}>
+        <Loader height={'100%'} />
       </FlexColumn>
     );
   }
 
+  if (!tasks?.length) {
+    return <TaskListEmpty />;
+  }
+
   return (
     <FlexColumn className={style.TaskList}>
-      {data.map((task, i) => (
-        <TaskCard key={`${task.title}_${i}`} task={task} />
+      {tasks.map((task, i) => (
+        <TaskCard key={`${task.id}_${i}`} task={task} />
       ))}
     </FlexColumn>
   );

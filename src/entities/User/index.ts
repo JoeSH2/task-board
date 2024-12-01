@@ -1,3 +1,4 @@
+export { useLoginMutation } from './model/api/fetchAuthUser';
 export {
   getUserInitial,
   getUserIsAuth,

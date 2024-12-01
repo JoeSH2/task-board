@@ -9,7 +9,7 @@ interface ThemeProviderProps {
   children?: ReactNode;
 }
 
-const actualTheme = localStorageWrapper.get<Theme | null>(StorageKey.theme);
+const actualTheme = localStorageWrapper.get<Theme | null>(StorageKey.THEME);
 
 const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
   const [theme, setTheme] = useState(actualTheme || Theme.LIGHT);

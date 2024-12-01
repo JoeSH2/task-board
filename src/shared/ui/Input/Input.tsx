@@ -9,6 +9,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     HTMLInputElement
   >;
   clearStyle?: boolean;
+  error?: string;
 }
 
 export const Input: FC<InputProps> = memo((props) => {
@@ -19,6 +20,7 @@ export const Input: FC<InputProps> = memo((props) => {
     disabled,
     type,
     hook,
+    error,
   } = props;
 
   const mode: ModeClassName = {
@@ -27,12 +29,16 @@ export const Input: FC<InputProps> = memo((props) => {
   };
 
   return (
-    <input
-      {...hook}
-      type={type}
-      disabled={disabled}
-      className={cls(style.Input, mode, [className])}
-      placeholder={placeholder}
-    />
+    <div className={style.wrapper}>
+      <input
+        {...hook}
+        // value={hook?.value || ''}
+        type={type}
+        disabled={disabled}
+        className={cls(style.Input, mode, [className])}
+        placeholder={placeholder}
+      />
+      {error && <p className={style.error}>{error}</p>}
+    </div>
   );
 });

@@ -1,11 +1,10 @@
 import Close from '@mui/icons-material/Close';
-import { FC, MouseEvent, useEffect } from 'react';
+import { FC, MouseEvent } from 'react';
 import { useSelector } from 'react-redux';
 
-import { getProjectById, useGetProjectsListQuery } from '@/entities/Project';
+import { getProjectById } from '@/entities/Project';
 import { useGetTasksListQuery } from '@/entities/Task/model/api/apiGetTasks.ts';
 import { useDeleteTaskMutation } from '@/features/DeleteTask';
-import { useSaveStatusMutation } from '@/features/SaveStatus';
 import { Button } from '@/shared/ui/Button/Button.tsx';
 
 import style from './DeleteTask.module.scss';
@@ -18,11 +17,9 @@ export const DeleteTask: FC<DeleteTaskProps> = (props) => {
   const { taskId } = props;
   const projectId = useSelector(getProjectById);
   const [deleteTask] = useDeleteTaskMutation();
-  const [saveStatus] = useSaveStatusMutation();
-  const { data: tasks, refetch: refetchTasks } = useGetTasksListQuery({
+  const { refetch } = useGetTasksListQuery({
     projectId,
   });
-  const { refetch: refetchProjects } = useGetProjectsListQuery();
 
   const onDeleteTask = async (
     e: MouseEvent<HTMLButtonElement>,
@@ -31,19 +28,9 @@ export const DeleteTask: FC<DeleteTaskProps> = (props) => {
     e.stopPropagation();
     if (id) {
       await deleteTask(id);
-      await refetchTasks();
+      await refetch();
     }
   };
-
-  useEffect(() => {
-    if (tasks) {
-      saveStatus({
-        id: projectId,
-        tasks: tasks.length,
-      }).unwrap();
-      refetchProjects();
-    }
-  }, [tasks]);
 
   return (
     <Button

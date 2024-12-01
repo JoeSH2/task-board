@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 
-import { Project, useGetProjectsListQuery } from '@/entities/Project';
+import { Project } from '@/entities/Project';
 import { useCreateProjectMutation } from '@/features/CreateProject';
 import { StatusProjectType } from '@/features/StatusProject';
 import { Button } from '@/shared/ui/Button/Button.tsx';
@@ -27,7 +27,6 @@ export const ModalCreateProject: FC<ModalCreateProjectProps> = (props) => {
   const { isOpen, setIsOpen } = props;
   const { control, handleSubmit, reset } = useForm<CreateProjectForm>();
   const [createProject] = useCreateProjectMutation();
-  const { refetch } = useGetProjectsListQuery();
 
   const onCreateSubmit: SubmitHandler<CreateProjectForm> = async ({
     title,
@@ -42,7 +41,6 @@ export const ModalCreateProject: FC<ModalCreateProjectProps> = (props) => {
         tasks: 0,
         status: StatusProjectType.INACTIVE,
       }).unwrap();
-      await refetch();
       await reset();
       setIsOpen(false);
     } catch (e) {

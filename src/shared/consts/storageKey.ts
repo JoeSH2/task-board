@@ -1,4 +1,5 @@
 export enum StorageKey {
-  projects = 'projects',
-  theme = 'theme',
+  PROJECTS = 'PROJECTS',
+  THEME = 'THEME',
+  USER_KEY = 'USER_AUTH',
 }
