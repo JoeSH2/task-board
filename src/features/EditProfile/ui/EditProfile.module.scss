@@ -1,0 +1,26 @@
+.EditProfile {
+  display: grid;
+  margin-top: 2rem;
+  gap: 2.5rem;
+}
+.inputWrapper {
+  gap: 1rem;
+
+  label {
+    flex: 0 0 16%;
+    cursor: auto;
+    font-size: var(--font-M);
+    color: var(--text-secondary-color);
+  }
+  input {
+    padding: 1rem 0.6rem 0;
+    border-bottom: 1px solid var(--special-color);
+    border-radius: 1rem 1rem 0 0;
+    transition: background-color 0.2s ease;
+
+    &:focus {
+      background-color: var(--secondary-color-hover);
+      border-color: var(--active-color);
+    }
+  }
+}

@@ -30,6 +30,9 @@ export const projectSlice = createSlice({
     setStatus: (state, action: PayloadAction<StatusProjectType>) => {
       state.project.status = action.payload;
     },
+    setTasksCount: (state, action: PayloadAction<number>) => {
+      state.project.tasks = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addMatcher(

@@ -5,12 +5,14 @@ import { StorageKey } from '@/shared/consts/storageKey.ts';
 import { localStorageWrapper } from '@/shared/lib/storageWrapper.ts';
 
 interface UserState {
+  mounted?: boolean;
   isAuth?: boolean;
   initialUser?: User;
 }
 
 const initialState: UserState = {
-  isAuth: false,
+  mounted: false,
+  isAuth: undefined,
 };
 
 export const userSlice = createSlice({

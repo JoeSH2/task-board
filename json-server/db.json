@@ -2,8 +2,9 @@
   "users": [
     {
       "id": "1",
-      "username": "admin",
-      "password": "admin"
+      "username": "Danila Kuzin",
+      "password": "admin",
+      "image": "https://cdn-icons-png.freepik.com/512/7789/7789836.png"
     }
   ],
   "projects": [
@@ -27,7 +28,7 @@
       "img": "https://static.vecteezy.com/system/resources/previews/008/991/240/non_2x/v-brush-stroke-artistic-letter-logo-design-with-creative-modern-look-and-vibrant-colors-vector.jpg",
       "title": "Fabric",
       "info": "Fabric is a powerful platform for creating and managing templates and components for web development. It aims to simplify the design and development process by providing users with a library of pre-built templates and modular components that can be easily customized. Fabric will include a visual editing tool, support for various frameworks, and integration with popular content management systems.",
-      "status": "Inactive",
+      "status": "On hold",
       "tasks": 6,
       "id": "3"
     },
@@ -45,13 +46,13 @@
       "info": "Canvas is an intuitive platform designed for collaborative web design and development. It allows teams to build responsive layouts with ease, leveraging a rich set of customizable UI components. The platform features real-time collaboration, version control, and seamless integration with front-end frameworks like React and Vue.",
       "img": "https://blog.logrocket.com/wp-content/uploads/2022/07/understanding-watchers-vue.png",
       "tasks": 1,
-      "status": "Inactive"
+      "status": "At risk"
     },
     {
       "title": "Разработка проекта",
       "img": "https://static.vecteezy.com/system/resources/previews/024/093/229/non_2x/polkadot-dot-glass-crypto-coin-3d-illustration-free-png.png",
       "status": "In Progress",
-      "tasks": 6,
+      "tasks": 7,
       "info": "Приложение для отслеживания хода выполнения проектов и задач внутри них.\nС отзывчивым интерфейсом и возможностью смены цветовой темы.\nСоздание проекта подразумевает одну большую задачу, которая делится на блоки, состоящие из заданий, которые можно выполнять и отчитываться по ним. А при завершении проекта, можно придать ему соответствующий статус!",
       "id": "6451"
     }
@@ -344,6 +345,15 @@
       "status": "FULFILLED",
       "report": "Решено, проблема в отсутствии тегов запросов у проектов.\n\n1.  Добавлено свойство: tagTypes: ['Projects'], в apiRtkQuery\n2.  Добавлено свойство: providesTags в projectsApi\n3.  Добавлено свойство: invalidatesTags: [{ type: 'Projects', id: 'LIST' }], во все мутирующие api для проектов",
       "date": "13.11.2024"
+    },
+    {
+      "title": "Изменения числа задач",
+      "description": "При запросе на удалении задачи, необходимо уменьшать количество задач в проекте на 1. Проблема состоит в получении актуального количества задач в компоненте DeleteTask и передача его в запрос",
+      "projectId": "6451",
+      "status": "FULFILLED",
+      "report": "Добавлена функция setTasksCount в projectSlice, которая отрабатывает при добавлении задачи, обновляя стейт, прибавляя к нему 1. Это позволило получать актуальное значение селектора количества задач в компоненте DeleteTask. ",
+      "id": "ihIDYJy",
+      "date": "04.12.2024"
     }
   ]
 }

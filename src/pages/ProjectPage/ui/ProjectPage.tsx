@@ -21,7 +21,9 @@ const ProjectPage: FC = () => {
   const { isFetching, isError } = useGetProjectByIdQuery(id, {
     refetchOnMountOrArgChange: true,
   });
-  const { data: tasks } = useGetTasksListQuery({ projectId: id });
+  const { data } = useGetTasksListQuery({ projectId: id });
+
+  const tasks = useMemo(() => data, [data]);
 
   const mode: ModeClassName = useMemo(() => {
     return {

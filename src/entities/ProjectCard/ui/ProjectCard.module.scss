@@ -1,4 +1,5 @@
 .ProjectCard {
+  font-family: var(--font-secondary);
   color: var(--text-inv-color);
   background-color: var(--special-hover-color);
   height: 80px;
@@ -29,14 +30,9 @@
   gap: 10px;
 
   span {
-    font-family: var(--font-secondary);
+    font-size: var(--font-S);
     text-transform: uppercase;
   }
-}
-.status {
-  font-size: var(--font-S);
-  font-weight: 500;
-  padding-top: 6px;
 }
 .img {
   object-fit: contain;
@@ -45,7 +41,7 @@
   border-radius: 50%;
 }
 .title {
-  font-size: var(--font-M);
+  font-size: var(--font-L);
   font-weight: 600;
   text-overflow: ellipsis;
   white-space: nowrap;

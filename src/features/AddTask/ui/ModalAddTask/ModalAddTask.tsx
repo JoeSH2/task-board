@@ -1,12 +1,14 @@
-import { FC, useEffect } from 'react';
+import { Box, LinearProgress } from '@mui/material';
+import { FC } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 
-import { getProjectById } from '@/entities/Project';
+import { getProjectId, projectAction } from '@/entities/Project';
 import { TaskStatus, TaskType } from '@/entities/Task';
 import { useGetTasksListQuery } from '@/entities/Task/model/api/apiGetTasks.ts';
 import { useAddTaskApiMutation } from '@/features/AddTask';
-import { useSaveStatusMutation } from '@/features/SaveStatus';
+import { useUpdateTaskCountMutation } from '@/features/EditProject';
+import { useAppDispatch } from '@/shared/hooks/hookRedux.tsx';
 import { Button } from '@/shared/ui/Button/Button.tsx';
 import { FlexRow } from '@/shared/ui/Flex/FlexRow.tsx';
 import { Input } from '@/shared/ui/Input/Input.tsx';
@@ -26,11 +28,12 @@ interface AddTaskForm extends Partial<TaskType> {
 }
 
 export const ModalAddTask: FC<ModalAddTaskProps> = (props) => {
+  const dispatch = useAppDispatch();
   const { isOpen, setIsOpen } = props;
   const { control, handleSubmit, reset } = useForm<AddTaskForm>();
-  const projectId = useSelector(getProjectById);
-  const [addTask] = useAddTaskApiMutation();
-  const [saveStatus] = useSaveStatusMutation();
+  const projectId = useSelector(getProjectId);
+  const [addTask, { isLoading }] = useAddTaskApiMutation();
+  const [updateTasksCount] = useUpdateTaskCountMutation();
   const { data: tasks, refetch } = useGetTasksListQuery({
     projectId: projectId,
   });
@@ -47,6 +50,14 @@ export const ModalAddTask: FC<ModalAddTaskProps> = (props) => {
         status: TaskStatus.EXECUTED,
         report: '',
       }).unwrap();
+
+      if (tasks) {
+        dispatch(projectAction.setTasksCount(tasks.length + 1));
+        await updateTasksCount({
+          id: projectId,
+          tasks: tasks.length + 1,
+        }).unwrap();
+      }
       await refetch();
       reset();
       setIsOpen(false);
@@ -54,26 +65,11 @@ export const ModalAddTask: FC<ModalAddTaskProps> = (props) => {
       console.error('Error occurred:', e);
     }
   };
+
   const onCancel = () => {
     reset();
     setIsOpen(false);
   };
-
-  useEffect(() => {
-    const updateProjectAndRefetch = async () => {
-      if (tasks) {
-        try {
-          await saveStatus({
-            id: projectId,
-            tasks: tasks.length,
-          }).unwrap();
-        } catch (e) {
-          console.log(e);
-        }
-      }
-    };
-    updateProjectAndRefetch();
-  }, [projectId, saveStatus, tasks]);
 
   return (
     <Modal className={style.ModalAddTask} setIsOpen={setIsOpen} isOpen={isOpen}>
@@ -119,6 +115,19 @@ export const ModalAddTask: FC<ModalAddTaskProps> = (props) => {
           </Button>
         </FlexRow>
       </form>
+      {isLoading && (
+        <Box>
+          <LinearProgress
+            sx={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              width: '100%',
+            }}
+            color={'success'}
+          />
+        </Box>
+      )}
     </Modal>
   );
 };

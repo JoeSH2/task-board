@@ -13,10 +13,12 @@
   padding: 1rem;
 }
 .name {
+  font-family: var(--font-main);
   font-size: var(--font-XL);
   font-weight: bold;
 }
 .text {
+  font-size: var(--font-M);
   text-align: justify;
 }
 .form {

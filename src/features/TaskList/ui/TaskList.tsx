@@ -7,6 +7,7 @@ import { useGetTasksListQuery } from '@/entities/Task/model/api/apiGetTasks.ts';
 import { TaskCard } from '@/entities/TaskCard';
 import { TaskListEmpty } from '@/features/TaskList/ui/TaskListEmpty/TaskListEmpty.tsx';
 import { useAppDispatch } from '@/shared/hooks/hookRedux.tsx';
+import { cls } from '@/shared/lib/cls.ts';
 import { FlexColumn } from '@/shared/ui/Flex/FlexColumn.tsx';
 import { Loader } from '@/shared/ui/Loader/Loader.tsx';
 
@@ -20,7 +21,9 @@ export const TaskList: FC<TaskListProps> = memo(({ tasks }) => {
   const { id: projectId } = useParams();
   const dispatch = useAppDispatch();
   const taskId = useSelector(getTaskById);
-  const { isError, isLoading } = useGetTasksListQuery({ projectId });
+  const { isError, isLoading } = useGetTasksListQuery({
+    projectId,
+  });
 
   useEffect(() => {
     if (tasks && tasks.length) {
@@ -30,12 +33,24 @@ export const TaskList: FC<TaskListProps> = memo(({ tasks }) => {
   }, [tasks, dispatch]);
 
   if (isError) {
-    return <div>...ERROR tasks...</div>;
+    return (
+      <FlexColumn
+        alignItems={'center'}
+        justifyContent={'center'}
+        className={cls(style.TaskList, {}, [style.loader])}
+      >
+        <h3>Data error</h3>
+      </FlexColumn>
+    );
   }
 
   if (isLoading) {
     return (
-      <FlexColumn className={style.TaskList}>
+      <FlexColumn
+        alignItems={'center'}
+        justifyContent={'center'}
+        className={cls(style.TaskList, {}, [style.loader])}
+      >
         <Loader height={'100%'} />
       </FlexColumn>
     );

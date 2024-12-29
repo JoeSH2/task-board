@@ -13,7 +13,7 @@ export const ProtectedRoutes: FC<ProtectedRoutesProps> = ({ children }) => {
   const location = useLocation();
   const isAuth = useSelector(getUserIsAuth);
 
-  if (!isAuth) {
+  if (isAuth === false) {
     return <Navigate to={getMainPage()} replace state={{ from: location }} />;
   }
 

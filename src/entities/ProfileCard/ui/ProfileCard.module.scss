@@ -2,12 +2,10 @@
   gap: 1rem;
 }
 .icon {
-  cursor: pointer;
   display: block;
 }
 .notifications {
-  cursor: pointer;
-  margin-right: 10px;
+  margin-right: 1rem;
   color: var(--text-color);
   span {
     background-color: var(--special-hover-color);

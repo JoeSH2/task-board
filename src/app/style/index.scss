@@ -2,6 +2,7 @@
 @use 'variables';
 @use 'themes/dark';
 @use 'themes/light';
+@use 'fonts/fonts';
 
 html {
   height: 100vh;
@@ -29,7 +30,7 @@ html {
   flex-direction: column;
   min-height: 100vh;
 
-  font-size: var(--font-M);
+  font-size: var(--font-L);
   color: var(--text-color);
   background-color: var(--main-color);
   transition:

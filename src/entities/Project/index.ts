@@ -3,7 +3,7 @@ export {
   useGetProjectsListQuery,
 } from './models/api/apiGetProjects';
 export {
-  getProjectById,
+  getProjectId,
   getProjectImageSelector,
   getProjectSelector,
   getProjectStatus,

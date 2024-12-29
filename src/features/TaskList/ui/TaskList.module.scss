@@ -9,3 +9,7 @@
   scrollbar-color: var(--secondary-color) var(--text-inv-color);
   overscroll-behavior: none;
 }
+.loader {
+  border-radius: var(--border-radius-M);
+  box-shadow: var(--box-shadow-mini);
+}

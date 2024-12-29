@@ -6,9 +6,4 @@
 
   gap: 1rem;
   margin-top: 20px;
-
-  @media screen and (max-width: 430px) {
-    flex-direction: column-reverse;
-    row-gap: 50px;
-  }
 }

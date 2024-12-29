@@ -1,4 +1,5 @@
 import { apiRtkQuery } from '@/shared/api/apiRtkQuery.ts';
+
 const deleteTaskApi = apiRtkQuery.injectEndpoints({
   endpoints: (build) => ({
     deleteTask: build.mutation<void, string>({

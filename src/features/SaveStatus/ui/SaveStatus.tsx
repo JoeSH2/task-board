@@ -1,7 +1,8 @@
 import Done from '@mui/icons-material/Done';
 import { FC, useCallback } from 'react';
+import { useSelector } from 'react-redux';
 
-import { getProjectSelector } from '@/entities/Project';
+import { getProjectId, getProjectStatus } from '@/entities/Project';
 import { useAppSelector } from '@/shared/hooks/hookRedux.tsx';
 import { Button } from '@/shared/ui/Button/Button.tsx';
 
@@ -10,15 +11,16 @@ import style from './SaveStatus.module.scss';
 
 export const SaveStatus: FC = () => {
   const [saveStatus] = useSaveStatusMutation();
-  const project = useAppSelector(getProjectSelector);
+  const projectId = useSelector(getProjectId);
+  const projectStatus = useAppSelector(getProjectStatus);
 
   const onSaveStatus = useCallback(async () => {
     try {
-      await saveStatus(project).unwrap();
+      await saveStatus({ id: projectId, status: projectStatus }).unwrap();
     } catch (e) {
       console.log(e);
     }
-  }, [project, SaveStatus]);
+  }, [projectStatus, SaveStatus]);
 
   return (
     <div className={style.SaveStatus}>

@@ -1,0 +1,44 @@
+.Popup {
+  position: relative;
+  z-index: var(--z-level-3);
+}
+.menu {
+  position: absolute;
+  min-width: 100%;
+  top: 100%;
+  left: 0;
+
+  border-radius: var(--border-radius-L);
+  background-color: var(--secondary-color-hover);
+  box-shadow: var(--box-shadow);
+  padding: 1rem;
+}
+.list {
+  margin: 0 -1rem;
+
+  li {
+    position: relative;
+    cursor: pointer;
+    padding: 0.6rem;
+    transition: background-color 0.2s ease;
+    z-index: 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--secondary-color);
+      opacity: 0.3;
+      z-index: -1;
+      transition: opacity 0.2s ease;
+      border-radius: inherit;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+  }
+}

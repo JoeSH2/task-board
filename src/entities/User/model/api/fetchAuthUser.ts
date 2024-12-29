@@ -13,12 +13,23 @@ const apiUserAuth = apiRtkQuery.injectEndpoints({
         try {
           const { data: user } = await queryFulfilled;
           dispatch(userAction.signWith(user));
+          console.log('auth');
         } catch (e) {
           console.error('Error auth', e);
         }
       },
     }),
+    editUser: build.mutation<User, Omit<User, 'password'>>({
+      query: ({ username, id, image }) => ({
+        url: `/users/${id}`,
+        method: 'PATCH',
+        body: {
+          username,
+          image,
+        },
+      }),
+    }),
   }),
 });
 
-export const { useLoginMutation } = apiUserAuth;
+export const { useLoginMutation, useEditUserMutation } = apiUserAuth;

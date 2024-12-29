@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { useSelector } from 'react-redux';
 
 import { getTaskById, taskAction, TaskType } from '@/entities/Task';
@@ -14,7 +14,7 @@ interface TaskCardProps {
   task: TaskType;
 }
 
-export const TaskCard: FC<TaskCardProps> = ({ task }) => {
+export const TaskCard: FC<TaskCardProps> = memo(({ task }) => {
   const dispatch = useAppDispatch();
   const activeTaskId = useSelector(getTaskById);
   const isActiveCard = activeTaskId === task.id;
@@ -37,4 +37,4 @@ export const TaskCard: FC<TaskCardProps> = ({ task }) => {
       </FlexRow>
     </FlexColumn>
   );
-};
+});
