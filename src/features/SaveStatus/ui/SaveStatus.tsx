@@ -1,4 +1,4 @@
-import Done from '@mui/icons-material/Done';
+import { CircleCheck } from 'lucide-react';
 import { FC, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -25,7 +25,7 @@ export const SaveStatus: FC = () => {
   return (
     <div className={style.SaveStatus}>
       <Button onClick={onSaveStatus} className={style.saveBtn}>
-        <Done className={style.btnIcon} />
+        <CircleCheck className={style.btnIcon} />
         Save status
       </Button>
     </div>

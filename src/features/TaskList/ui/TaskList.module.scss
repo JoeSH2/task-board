@@ -1,15 +1,25 @@
 .TaskList {
-  position: relative;
-  border-radius: var(--border-radius-S);
-  flex: 0 1 30%;
-  padding: 0 10px 0 0;
-  gap: 10px;
+  height: 480px;
+
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--secondary-color) var(--text-inv-color);
   overscroll-behavior: none;
+
+  padding-right: 0.6rem;
+  margin-top: 1rem;
+  gap: 0.6rem;
 }
 .loader {
   border-radius: var(--border-radius-M);
   box-shadow: var(--box-shadow-mini);
+}
+.search {
+  border: 2px solid var(--secondary-color-hover);
+  border-radius: var(--border-radius-XL);
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    border-color: var(--special-border-color);
+  }
 }

@@ -10,7 +10,7 @@ import style from './SortingProject.module.scss';
 interface SortingProjectProps {
   onFetch: (projects: Project[]) => void;
   isFetching: boolean;
-  data: Project[] | undefined;
+  data: Project[];
 }
 
 export const SortingProject: FC<SortingProjectProps> = ({
@@ -30,10 +30,6 @@ export const SortingProject: FC<SortingProjectProps> = ({
       </SortingItem>
     ));
   };
-
-  if (!data) {
-    return <div>Error data</div>;
-  }
 
   return (
     <div className={style.SortingProject}>

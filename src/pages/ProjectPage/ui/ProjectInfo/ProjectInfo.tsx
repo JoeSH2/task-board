@@ -1,5 +1,5 @@
-import { Edit } from '@mui/icons-material';
 import { Avatar } from '@mui/material';
+import { Settings } from 'lucide-react';
 import { FC, memo } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -27,7 +27,7 @@ export const ProjectInfo: FC = memo(() => {
           <p>{title}</p>
           <Link to={getEditProjectPage(id)}>
             <Button className={style.editBtn}>
-              <Edit />
+              <Settings />
             </Button>
           </Link>
         </FlexRow>

@@ -6,7 +6,7 @@ import style from './TaskListEmpty.module.scss';
 
 export const TaskListEmpty: FC = () => {
   return (
-    <FlexColumn justifyContent={'center'} className={style.noData_wrapper}>
+    <FlexColumn justifyContent={'center'} className={style.TaskListEmpty}>
       <h1 className={style.noData_title}>
         You don't have any project tasks yet
       </h1>

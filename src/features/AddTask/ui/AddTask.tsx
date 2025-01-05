@@ -1,4 +1,4 @@
-import Add from '@mui/icons-material/Add';
+import { CirclePlus } from 'lucide-react';
 import { FC, MouseEvent, useState } from 'react';
 
 import { ModalAddTask } from '@/features/AddTask/ui/ModalAddTask/ModalAddTask.tsx';
@@ -21,7 +21,7 @@ export const AddTask: FC = () => {
         className={style.createBtn}
         onClick={(e: MouseEvent) => onOpenModal(e)}
       >
-        <Add className={style.icon} />
+        <CirclePlus />
         Create a task
       </Button>
       <ModalAddTask isOpen={isOpen} setIsOpen={setIsOpen} />

@@ -1,3 +1,4 @@
+import { Trash2 } from 'lucide-react';
 import { FC, MouseEvent, useState } from 'react';
 
 import { Button } from '@/shared/ui/Button/Button.tsx';
@@ -18,6 +19,7 @@ export const DeleteProject: FC = () => {
         onClick={(e: MouseEvent) => handleOpenedModal(e)}
         className={style.delete_btn}
       >
+        <Trash2 />
         Delete project
       </Button>
       <ModalDeleteProject isOpen={isOpenModal} setIsOpen={setIsOpenModal} />

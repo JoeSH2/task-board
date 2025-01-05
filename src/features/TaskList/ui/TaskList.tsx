@@ -9,6 +9,8 @@ import { TaskListEmpty } from '@/features/TaskList/ui/TaskListEmpty/TaskListEmpt
 import { useAppDispatch } from '@/shared/hooks/hookRedux.tsx';
 import { cls } from '@/shared/lib/cls.ts';
 import { FlexColumn } from '@/shared/ui/Flex/FlexColumn.tsx';
+import { FlexRow } from '@/shared/ui/Flex/FlexRow.tsx';
+import { Input } from '@/shared/ui/Input/Input.tsx';
 import { Loader } from '@/shared/ui/Loader/Loader.tsx';
 
 import style from './TaskList.module.scss';
@@ -61,10 +63,15 @@ export const TaskList: FC<TaskListProps> = memo(({ tasks }) => {
   }
 
   return (
-    <FlexColumn className={style.TaskList}>
-      {tasks.map((task, i) => (
-        <TaskCard key={`${task.id}_${i}`} task={task} />
-      ))}
+    <FlexColumn fullWight>
+      <FlexRow fullWight>
+        <Input placeholder={'search task...'} className={style.search} />
+      </FlexRow>
+      <FlexColumn fullWight className={style.TaskList}>
+        {tasks.map((task, i) => (
+          <TaskCard key={`${task.id}_${i}`} task={task} />
+        ))}
+      </FlexColumn>
     </FlexColumn>
   );
 });

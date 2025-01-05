@@ -23,6 +23,19 @@ export const TaskCard: FC<TaskCardProps> = memo(({ task }) => {
     dispatch(taskAction.initialTask(task));
   };
 
+  if (!task) {
+    return (
+      <FlexColumn
+        fullWight
+        alignItems={'center'}
+        onClick={onChangeTask}
+        className={cls(style.TaskCard, { [style.active]: isActiveCard }, [])}
+      >
+        <h2>Task loading error</h2>
+      </FlexColumn>
+    );
+  }
+
   return (
     <FlexColumn
       fullWight

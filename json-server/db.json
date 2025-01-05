@@ -2,9 +2,15 @@
   "users": [
     {
       "id": "1",
-      "username": "Danila Kuzin",
+      "username": "Admin",
       "password": "admin",
       "image": "https://cdn-icons-png.freepik.com/512/7789/7789836.png"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "123",
+      "image": ""
     }
   ],
   "projects": [
@@ -41,15 +47,15 @@
       "id": "4"
     },
     {
-      "id": "d6bc",
       "title": "Canvas",
-      "info": "Canvas is an intuitive platform designed for collaborative web design and development. It allows teams to build responsive layouts with ease, leveraging a rich set of customizable UI components. The platform features real-time collaboration, version control, and seamless integration with front-end frameworks like React and Vue.",
       "img": "https://blog.logrocket.com/wp-content/uploads/2022/07/understanding-watchers-vue.png",
+      "status": "Inactive",
       "tasks": 1,
-      "status": "At risk"
+      "info": "Canvas is an intuitive platform designed for collaborative web design and development. It allows teams to build responsive layouts with ease, leveraging a rich set of customizable UI components. The platform features real-time collaboration, version control, and seamless integration with front-end frameworks like React and Vue.",
+      "id": "d6bc"
     },
     {
-      "title": "Разработка проекта",
+      "title": "Taskboard",
       "img": "https://static.vecteezy.com/system/resources/previews/024/093/229/non_2x/polkadot-dot-glass-crypto-coin-3d-illustration-free-png.png",
       "status": "In Progress",
       "tasks": 7,

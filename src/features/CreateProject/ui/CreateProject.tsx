@@ -1,4 +1,4 @@
-import Add from '@mui/icons-material/Add';
+import { CirclePlus } from 'lucide-react';
 import { FC, MouseEvent, useState } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -24,7 +24,7 @@ export const CreateProject: FC = () => {
         className={style.createBtn}
         onClick={(e) => onOpenModal(e)}
       >
-        <Add className={style.icon} />
+        <CirclePlus />
         New project
       </Button>
       <ModalCreateProject isOpen={isOpen} setIsOpen={setIsOpen} />

@@ -1,4 +1,4 @@
-import { Done, NotInterested, SwapVert } from '@mui/icons-material';
+import { Ban, CircleCheckBig, GripVertical } from 'lucide-react';
 import { FC, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -12,6 +12,7 @@ import { StorageKey } from '@/shared/consts/storageKey.ts';
 import { cls } from '@/shared/lib/cls.ts';
 import { localStorageWrapper } from '@/shared/lib/storageWrapper.ts';
 import { Button } from '@/shared/ui/Button/Button.tsx';
+import { FlexColumn } from '@/shared/ui/Flex/FlexColumn.tsx';
 import { FlexRow } from '@/shared/ui/Flex/FlexRow.tsx';
 import { Loader } from '@/shared/ui/Loader/Loader.tsx';
 
@@ -25,9 +26,11 @@ export const ProjectListView: FC = () => {
   const sortedProjectsId = localStorageWrapper.get<string[]>(
     StorageKey.PROJECTS
   );
-  const { data, isLoading, isError } = useGetProjectsListQuery({
+  const { data, isLoading, isError, isFetching } = useGetProjectsListQuery({
     sortId: sortedProjectsId,
   });
+
+  console.log(isLoading, isFetching);
 
   const enterSortingMode = () => {
     setIsSorting(true);
@@ -60,17 +63,27 @@ export const ProjectListView: FC = () => {
 
   if (isLoading) {
     return (
-      <div>
+      <FlexColumn
+        alignItems={'center'}
+        justifyContent={'center'}
+        fullHeight
+        fullWight
+      >
         <Loader />
-      </div>
+      </FlexColumn>
     );
   }
 
-  if (isError) {
+  if (isError && !data) {
     return (
-      <div>
+      <FlexColumn
+        alignItems={'center'}
+        justifyContent={'center'}
+        fullHeight
+        fullWight
+      >
         <h3>Error data</h3>
-      </div>
+      </FlexColumn>
     );
   }
 
@@ -79,7 +92,7 @@ export const ProjectListView: FC = () => {
       <>
         <FlexRow className={style.ProjectListView} justifyContent={'flex-end'}>
           <Button className={style.btn} onClick={enterSortingMode}>
-            <SwapVert fontSize={'small'} />
+            <GripVertical size={18} />
           </Button>
         </FlexRow>
         <ProjectList data={data} />
@@ -94,17 +107,17 @@ export const ProjectListView: FC = () => {
           className={cls(style.btn, {}, [style.cancelBtn])}
           onClick={exitSortingMode}
         >
-          <NotInterested fontSize={'small'} />
+          <Ban size={18} />
         </Button>
         <Button
           onClick={onFetchingSortedProjects}
           className={cls(style.btn, {}, [style.doneBtn])}
         >
-          <Done fontSize={'small'} />
+          <CircleCheckBig size={18} />
         </Button>
       </FlexRow>
       <SortingProject
-        data={data}
+        data={data!}
         isFetching={isSavingSort}
         onFetch={saveSortedProjects}
       />

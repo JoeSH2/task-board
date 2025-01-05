@@ -2,9 +2,17 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { TaskStatus, TaskType } from '../types/TaskType';
 
-type TaskStatusState = Partial<TaskType>;
+const emptyTask: TaskType = {
+  id: '',
+  title: '',
+  projectId: '',
+  status: TaskStatus.EXECUTED,
+  date: undefined,
+  description: '',
+  report: '',
+};
 
-const initialState: TaskStatusState = {};
+const initialState: TaskType = emptyTask;
 
 export const taskSlice = createSlice({
   name: 'task',
@@ -13,11 +21,14 @@ export const taskSlice = createSlice({
     initialTask: (_, action: PayloadAction<TaskType>) => {
       return { ...action.payload };
     },
-    editTask: (state, action: PayloadAction<TaskStatusState>) => {
+    editTask: (state, action: PayloadAction<TaskType>) => {
       return { ...state, ...action.payload };
     },
     setStatus: (state, action: PayloadAction<TaskStatus>) => {
       state.status = action.payload;
+    },
+    deleteTask: () => {
+      return emptyTask;
     },
   },
 });

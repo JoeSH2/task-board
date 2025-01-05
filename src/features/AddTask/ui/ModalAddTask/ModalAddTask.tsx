@@ -30,7 +30,12 @@ interface AddTaskForm extends Partial<TaskType> {
 export const ModalAddTask: FC<ModalAddTaskProps> = (props) => {
   const dispatch = useAppDispatch();
   const { isOpen, setIsOpen } = props;
-  const { control, handleSubmit, reset } = useForm<AddTaskForm>();
+  const { control, handleSubmit, reset } = useForm<AddTaskForm>({
+    defaultValues: {
+      title: '',
+      description: '',
+    },
+  });
   const projectId = useSelector(getProjectId);
   const [addTask, { isLoading }] = useAddTaskApiMutation();
   const [updateTasksCount] = useUpdateTaskCountMutation();
@@ -53,13 +58,16 @@ export const ModalAddTask: FC<ModalAddTaskProps> = (props) => {
 
       if (tasks) {
         dispatch(projectAction.setTasksCount(tasks.length + 1));
-        await updateTasksCount({
+        updateTasksCount({
           id: projectId,
           tasks: tasks.length + 1,
         }).unwrap();
       }
-      await refetch();
-      reset();
+      reset({
+        title: '',
+        description: '',
+      });
+      refetch();
       setIsOpen(false);
     } catch (e) {
       console.error('Error occurred:', e);
@@ -72,14 +80,13 @@ export const ModalAddTask: FC<ModalAddTaskProps> = (props) => {
   };
 
   return (
-    <Modal className={style.ModalAddTask} setIsOpen={setIsOpen} isOpen={isOpen}>
+    <Modal className={style.ModalAddTask} setIsOpen={onCancel} isOpen={isOpen}>
       <h5 className={style.title}>New task</h5>
       <form onSubmit={handleSubmit(onCreateSubmit)} className={style.form}>
         <FlexRow className={style.blockForm}>
           <label className={style.text}>Name the task</label>
           <Controller
             name="title"
-            defaultValue={''}
             control={control}
             render={({ field }) => (
               <Input
@@ -95,7 +102,6 @@ export const ModalAddTask: FC<ModalAddTaskProps> = (props) => {
           <label className={style.text}>Objective of tasks</label>
           <Controller
             name="description"
-            defaultValue={''}
             control={control}
             render={({ field }) => (
               <Textarea
@@ -123,8 +129,11 @@ export const ModalAddTask: FC<ModalAddTaskProps> = (props) => {
               bottom: 0,
               left: 0,
               width: '100%',
+              backgroundColor: 'var(--main-color)',
+              '& .MuiLinearProgress-bar': {
+                backgroundColor: 'var(--active-color)',
+              },
             }}
-            color={'success'}
           />
         </Box>
       )}

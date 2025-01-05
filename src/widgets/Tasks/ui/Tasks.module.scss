@@ -1,9 +1,7 @@
 .Tasks {
-  font-family: var(--font-secondary);
   display: grid;
   grid-template-columns: 30% 70%;
-  height: 490px;
-
   gap: 1rem;
-  margin-top: 20px;
+  margin-top: 1rem;
+  font-family: var(--font-secondary);
 }

@@ -8,6 +8,7 @@ import { DeleteProject } from '@/features/DeleteProject';
 import { StatusProject, StatusProjectType } from '@/features/StatusProject';
 import { useAppSelector } from '@/shared/hooks/hookRedux.tsx';
 import { cls, ModeClassName } from '@/shared/lib/cls.ts';
+import { FlexColumn } from '@/shared/ui/Flex/FlexColumn.tsx';
 import { Loader } from '@/shared/ui/Loader/Loader.tsx';
 import { PageWrapper } from '@/shared/ui/PageWrapper/PageWrapper.tsx';
 import { Tasks } from '@/widgets/Tasks';
@@ -42,7 +43,18 @@ const ProjectPage: FC = () => {
   }
 
   if (isError) {
-    return <div>DATA ERROR!</div>;
+    return (
+      <PageWrapper>
+        <FlexColumn
+          fullHeight
+          fullWight
+          alignItems={'center'}
+          justifyContent={'center'}
+        >
+          <h1>Data retrieval error, try again later!</h1>
+        </FlexColumn>
+      </PageWrapper>
+    );
   }
 
   return (

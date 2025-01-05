@@ -17,7 +17,6 @@ const EditProjectPage: FC = () => {
   const { isLoading } = useGetProjectByIdQuery(urlId);
 
   if (isLoading) {
-    //TODO сделать лоадер
     return (
       <PageWrapper className={style.EditProjectPage}>
         <Loader height={'100%'} message={`Loading edit project page`} />
